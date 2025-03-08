@@ -1,5 +1,10 @@
 @import "tailwindcss";
+@import '@fontsource/anton'; 
 
 * {
-  font-family:sans-serif;
+
+  font-family: anton;
+  font-weight: 400;
+  font-style: normal;
+
 }

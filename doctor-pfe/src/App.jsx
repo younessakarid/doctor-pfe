@@ -9,6 +9,7 @@ import Appointment from './pages/Appointment'
 import MyAppointments from './pages/MyAppointments'
 import MyProfil from './pages/MyProfile'
 import Navbar from './components/Navbar'
+import '@fontsource/anton'; 
 
 
 

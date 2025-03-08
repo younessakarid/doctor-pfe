@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
+import FirstSection from '../components/FirstSection'
 
 function Home() {
   return (
-    
-        <Header />
-          
+    <>
+     <Header />
+     <FirstSection />
+    </>
   )
 }
 
-export default Home
+export default Home;
