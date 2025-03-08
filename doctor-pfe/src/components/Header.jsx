@@ -17,6 +17,8 @@ function Header() {
                       <div className='pb-10 pr-10 flex items center gap-2'>
                       <button className='text-[17px] text-white bg-blue-900 px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>book consultation</button>
                       <button className='bg-blue-900 w-10 h-10 rounded-full'></button>
+
+                      <H1>dàzjdoj</H1>
                       </div>
                      
         
