@@ -85,6 +85,6 @@ export const doctors = [
         about: 'L\'endodontie traite les infections de la pulpe dentaire. Mon expertise consiste à éliminer les infections et restaurer les dents avec des techniques peu invasives et basées sur des données probantes.',
         fees : 490,
         address:'59 Avenue de la Bourdonnais, 75007 Paris'
-    },    
+    }
     
 ]
