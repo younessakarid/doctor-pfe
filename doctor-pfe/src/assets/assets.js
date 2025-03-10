@@ -4,6 +4,7 @@ import Parodontologie_exclusive from '../assets/Parodontologie_exclusive.png'
 import chirurgie_dentaire from '../assets/chirurgie_dentaire.png'
 import icon_water from '../assets/icone-de-l-eau-bleue.png'
 import icon_pilule from '../assets/icone-pilule.png'
+import Dentisterie_adhésive_et_esthétique from '../assets/Dentisterie_adhesive-et-esthetique.png'
 
 export const assets = {
   Esthetiqueprothese,
@@ -11,7 +12,8 @@ export const assets = {
   Parodontologie_exclusive,
   chirurgie_dentaire,
   icon_water,
-  icon_pilule
+  icon_pilule,
+  Dentisterie_adhésive_et_esthétique
 
 }
 
@@ -35,6 +37,10 @@ export const specialityData = [
     {
         speciality : 'chirurgie dentaire',
         Image : chirurgie_dentaire
+    },
+    {
+        speciality : 'Dentisterie adhésive et esthétique',
+        Image : Dentisterie_adhésive_et_esthétique
     }
 ]
 
@@ -84,6 +90,17 @@ export const doctors = [
         experience: '4 Years',
         about: 'L\'endodontie traite les infections de la pulpe dentaire. Mon expertise consiste à éliminer les infections et restaurer les dents avec des techniques peu invasives et basées sur des données probantes.',
         fees : 490,
+        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+    },
+    {
+        _id: 'doc5',
+        name: 'Dr. Anne Favreul',
+        image: Dentisterie_adhésive_et_esthétique,
+        speciality: 'Dentisterie adhésive et esthétique',
+        degree: 'D.E. Chir. Dent',
+        experience: '9 Years',
+        about: 'Le docteur Anne Favreul vous accueille au sein de son cabinet.Le chirurgien-dentiste, aussi appelé dentiste, prend en charge les problèmes bucco-dentaires. Les patients peuvent notamment le consulter pour un détartrage, le soin d\'une carie, le soulagement de gencives irritées, la réparation d\'une dent abîmée, la réalisation de prothèses dentaires ainsi que pour une demande esthétique.',
+        fees : 135,
         address:'59 Avenue de la Bourdonnais, 75007 Paris'
     }
     
