@@ -1,57 +1,49 @@
 import React from 'react'
-import head_image from '../assets/head-image.png'
-import dental from '../assets/dental.png';
-import icon_water from '../assets/icone-de-l-eau-bleue.png';
-import { GoArrowRight } from "react-icons/go";
+import { SlLocationPin } from "react-icons/sl";
+import { BsTelephoneForward } from "react-icons/bs";
+import { MdOutlineMarkEmailUnread } from "react-icons/md";
+import { RxTimer } from "react-icons/rx";
+import { WiStars } from "react-icons/wi";
+import { GoArrowUpRight } from "react-icons/go";
+import hero_img from '../assets/hero_img.png'
+import { FaStar } from "react-icons/fa";
+
 
 
 function Header() {
   return (
-    <div>
+    <div >
 
-        <section className='bg-[#0e384c] w-full h-[500px] mt-10  pr-16 rounded-[55px] flex justify-between items-end relative'>
+        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  flex justify-around items-center relative'>
         
-
-                    <div>
-                       <h1 className='text-[210px] absolute top-0 left-50 z-[2] text-white  font-bold'>Dent Care</h1>
-
-                        <div className='flex justify-between absolute gap-100 top-1/2 left-100 items-center '>
-                            <div className='flex gap-1 items-center'>
-                                <img src={dental} className='w-7 bg-[#e7c3d1] rounded-full p-1 '  />
-                                <h5 className='text-gray-300'>Reduce HB13</h5>
-
-                            </div>
-
-                            <div className='flex gap-1 items-center'>
-                               <img src={icon_water} className='w-7 bg-[#a1dcc5] rounded-full p-1'  alt="" />
-                               <h5 className='text-gray-300'>Reduce HB13</h5>
-                            </div>
-                        </div>
-                    </div>
-
-
-                   
-
-
-                <p className='pb-10 pl-10 text-white'>Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Odio, quasi.
-                <br />Consectetur laboriosam.</p>
-        
-                     <img src={head_image} alt="" className='w-100 z-[3] transition duration-300 hover:translate-x-4 ' />
-        
-                     <div className='pb-10 pr-10 flex items-center gap-2'>
-                  <button className='text-[17px] bg-[#eaefff] text-[#252c62] font-bold  px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>
-                  Réserver une consultation
-                 </button>
-                 <button className='bg-[#eaefff] text-[#252c62] w-10 h-10 rounded-full hover:scale-110 transition-all duration-200 flex justify-center items-center'>
   
-                 <span className="text-[#252c62] font-extrabold text-2xl"><GoArrowRight /></span>
-                 </button>
-                 </div>
-
-                     
+          
+                <div className='flex flex-col gap-10 mx-30'>
         
-        </section> 
+                   <div>
+                    <h1 className='text-6xl text-[#0e384c] font-bold'>Vivez<span className='text-6xl text-[#1e84b5] font-bold'> l'excellence<br/> dentaire</span>  avec une <br/>touche de douceur.</h1>
+                  </div>
+                  
+        
+                  <div>
+                    <p  className='text-[#5c7b8a]'>Il est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu <br/> lisible d'une page lorsqu'il en examine la mise en page. L'intérêt d'utiliser <br/>Lorem Ipsum est qu'il possède une distribution de lettres plus ou moins <br/> normale.</p>
+                  </div>
+        
+                  <div className='flex items-center gap-2 text-[17px]  text-white bg-[#1e84b5] py-[9px] pl-4 mr-80 rounded-[80px] hover:scale-110 transition-all duration-200'>
+                    <button>Prendre rendez-vous</button>
+                    <GoArrowUpRight className='text-[#1e84b5] bg-white p-1 text-3xl rounded-full'  />
+                  </div>
+        
+                  <hr className='color-[#1e84b5] opacity-10' />
+                  <p className='flex gap-2 text-l text-[#0f4766]'>Google Rating <span className='text-[#ffa800] flex items-center gap-1'> 5.0 <FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></span>  based on 492 reviews</p>
+                  
+                  
+                </div>
 
+
+                <img src={hero_img} className='pt-1' alt="" />
+
+        </section>
     </div>
   )
 }

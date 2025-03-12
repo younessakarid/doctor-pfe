@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import { GoArrowUpRight } from "react-icons/go";
+import 'animate.css'
 
 function Navbar() {
 
@@ -15,10 +15,10 @@ function Navbar() {
     
     <div>
 
-      <div className="flex justify-between items-center   bg-[#eff8ff]  px-30 py-7">
-        <img onClick={()=> navigate('/')} src={logo} alt="logo" className='w-45 ' />
+      <div className="flex justify-between items-center   bg-[#eff8ff]  px-30 py-4">
+        <img onClick={()=> navigate('/')} src={logo} alt="logo" className='w-55 ' />
 
-        <ul className='flex gap-10 items-center text-[17px]'>
+        <ul className='flex gap-12  text-[#082431] items-center text-[17px]'>
           <li className='hover:scale-110 transition-transform duration-300 ease-in-out'><NavLink to="/" exact activeClassName="active"  >Home</NavLink></li>
           <li className='hover:scale-110 transition-transform duration-300 ease-in-out'><NavLink to="/doctors" activeClassName="active">All doctors</NavLink></li>
           <li className='hover:scale-110 transition-transform duration-300 ease-in-out'><NavLink to="/about" activeClassName="active">About</NavLink></li>
@@ -29,7 +29,7 @@ function Navbar() {
         {
             token ? 
             <div></div>
-            : <div className='flex'><button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#0e384c] px-8 py-2 rounded-[80px] hover:scale-110 transition-all hover:animate-pulse duration-200'>Create account</button><GoArrowUpRight className='text-[#252c62] bg-white p-1 text-2xl rounded-full'  /></div>
+            :<button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#1e84b5] px-8 py-[9px] rounded-[80px] hover:scale-110 transition-all duration-200'>Create account</button>
         }
         
         
@@ -39,7 +39,7 @@ function Navbar() {
       </div>
 
 
-      <hr className='color-blue-500 opacity-20' />
+      <hr className='color-[#1e84b5] opacity-10' />
     </div>
   )
 }
