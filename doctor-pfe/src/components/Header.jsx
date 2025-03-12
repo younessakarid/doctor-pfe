@@ -7,18 +7,21 @@ import { WiStars } from "react-icons/wi";
 import { GoArrowUpRight } from "react-icons/go";
 import hero_img from '../assets/hero_img.png'
 import { FaStar } from "react-icons/fa";
-
+import star1 from '../assets/star1.png'
+import star2 from '../assets/star2.png'
+import { PiTooth } from "react-icons/pi";
+import { GiToothbrush } from "react-icons/gi";
 
 
 function Header() {
   return (
     <div >
 
-        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  pt-7 flex justify-around items-center relative'>
+        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  pt-7 flex justify-between items-center relative'>
         
   
           
-                <div className='flex flex-col gap-10 mx-30'>
+                <div className='flex flex-col gap-10 mx-30 pt-6 '>
         
 
                    <div>
@@ -38,11 +41,24 @@ function Header() {
                   <hr className='color-[#1e84b5] opacity-10' />
                   <p className='flex gap-2 text-l text-[#0f4766]'>Google Rating <span className='text-[#ffa800] flex items-center gap-1'> 5.0 <FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></span>  based on 492 reviews</p>
                   
-                  
+                  <img src={star2} alt="" className='absolute w-40 opacity-25 animate-pulse top-6 left-8' />
+                  <img src={star2} alt="" className='absolute w-30 opacity-5 bottom-40 left-165' />
                 </div>
           
 
-                <img src={hero_img}  alt="" />
+                <div className='relative'> 
+                  <img src={hero_img} className='w-[650px] h-[605px]'  alt="" />
+                  <img src={star1} alt="" className='absolute w-40 opacity-90 animate-pulse top-1' />
+                   
+                   <div className='absolute bg-white top-35 left-16 rounded-full hover:bg-[#0e384c] duration-300 hover:animate-ping '>
+                   <PiTooth className='p-2 w-[70px] text-[#1e84b5]  h-[70px] hover:text-white' />
+                   </div>
+
+                   <div className='absolute bg-white top-70 right-16 rounded-full hover:bg-[#0e384c] duration-300 hover:animate-ping '>
+                   <GiToothbrush className='p-2 w-[70px] text-[#1e84b5]  h-[70px] hover:text-white' />
+                   </div>
+                </div>
+               
 
         </section>
     </div>
