@@ -29,7 +29,7 @@ function Navbar() {
         {
             token ? 
             <div></div>
-            : <button onClick={()=> settoken(true)} className='text-[17px] text-white bg-blue-500 px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>Create account</button>
+            : <button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#252c62] px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>Create account</button>
         }
         
         
