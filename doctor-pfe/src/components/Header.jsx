@@ -14,12 +14,13 @@ function Header() {
   return (
     <div >
 
-        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  flex justify-around items-center relative'>
+        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  pt-6 flex justify-around items-center relative'>
         
   
           
                 <div className='flex flex-col gap-10 mx-30'>
         
+
                    <div>
                     <h1 className='text-6xl text-[#0e384c] font-bold'>Vivez<span className='text-6xl text-[#1e84b5] font-bold'> l'excellence<br/> dentaire</span>  avec une <br/>touche de douceur.</h1>
                   </div>
@@ -39,9 +40,9 @@ function Header() {
                   
                   
                 </div>
+          
 
-
-                <img src={hero_img} className='pt-1' alt="" />
+                <img src={hero_img} className='pt-9' alt="" />
 
         </section>
     </div>
