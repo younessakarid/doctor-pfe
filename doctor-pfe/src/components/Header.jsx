@@ -14,7 +14,7 @@ function Header() {
   return (
     <div >
 
-        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  pt-6 flex justify-around items-center relative'>
+        <section className='bg-[#eff8ff] w-full h-auto l  pr-16  pt-7 flex justify-around items-center relative'>
         
   
           
@@ -30,7 +30,7 @@ function Header() {
                     <p  className='text-[#5c7b8a]'>Il est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu <br/> lisible d'une page lorsqu'il en examine la mise en page. L'intérêt d'utiliser <br/>Lorem Ipsum est qu'il possède une distribution de lettres plus ou moins <br/> normale.</p>
                   </div>
         
-                  <div className='flex items-center gap-2 text-[17px]  text-white bg-[#1e84b5] py-[9px] pl-4 mr-80 rounded-[80px] hover:scale-110 transition-all duration-200'>
+                  <div className='flex items-center gap-2 text-[17px]  text-white bg-[#1e84b5] py-[9px] pl-4 mr-80 rounded-[80px] hover:scale-110 transition-all duration-200 hover:animate-bounce'>
                     <button>Prendre rendez-vous</button>
                     <GoArrowUpRight className='text-[#1e84b5] bg-white p-1 text-3xl rounded-full'  />
                   </div>
@@ -42,7 +42,7 @@ function Header() {
                 </div>
           
 
-                <img src={hero_img} className='pt-9' alt="" />
+                <img src={hero_img}  alt="" />
 
         </section>
     </div>
