@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'
 function Footer() {
   return (
 
-    <div className='mt-40 bg-[#eaefff] pt-25 rounded-t-[90px] mb-0 '>
+    <div className='mt-40 bg-[#0e384c] text-white pt-25 rounded-t-[90px] mb-0 '>
      <div className='flex justify-around flex-wrap items-start pb-11'>
 
         
@@ -25,6 +25,17 @@ function Footer() {
                 <li><a href="" className='text-l'>About</a></li>
                 <li><a href="" className='text-l'>Contact</a></li>
                 <li><a href="" className='text-l'>Politique de confidentialité</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4 className='pb-4 font-bold text-xl'>Social Media</h4>
+
+            <ul className='flex flex-col gap-2'>
+                <li><a href="" className='text-l'>Instagram</a></li>
             </ul>
 
         </div>

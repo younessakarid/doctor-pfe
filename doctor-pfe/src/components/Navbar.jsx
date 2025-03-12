@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import Home from '../pages/Home';
+import { GoArrowUpRight } from "react-icons/go";
 
 function Navbar() {
 
@@ -15,7 +15,7 @@ function Navbar() {
     
     <div>
 
-      <div className="flex justify-between items-center mt-4 mb-1 bg-[#f5f7ff]  px-4 py-4 rounded-[15px]">
+      <div className="flex justify-between items-center   bg-[#eff8ff]  px-30 py-7">
         <img onClick={()=> navigate('/')} src={logo} alt="logo" className='w-45 ' />
 
         <ul className='flex gap-10 items-center text-[17px]'>
@@ -29,7 +29,7 @@ function Navbar() {
         {
             token ? 
             <div></div>
-            : <button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#252c62] px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>Create account</button>
+            : <div className='flex'><button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#0e384c] px-8 py-2 rounded-[80px] hover:scale-110 transition-all hover:animate-pulse duration-200'>Create account</button><GoArrowUpRight className='text-[#252c62] bg-white p-1 text-2xl rounded-full'  /></div>
         }
         
         
@@ -39,7 +39,7 @@ function Navbar() {
       </div>
 
 
-      {/* <hr className='color-purple-500' /> */}
+      <hr className='color-blue-500 opacity-20' />
     </div>
   )
 }

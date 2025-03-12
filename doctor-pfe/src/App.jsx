@@ -17,7 +17,7 @@ function App() {
   console.log("App component rendered");
   return (
     
-    <div className='mx-4 sm:mx-[4%]'>
+    <div className='mx-0 sm:mx-[0%]'>
         <Navbar />
        
       <Routes>
