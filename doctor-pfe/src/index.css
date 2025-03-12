@@ -1,10 +1,20 @@
 @import "tailwindcss";
-@import '@fontsource/anton'; 
+@import '@fontsource/anton';
+@import "@fontsource/poppins/700.css"; 
+@import "@fontsource/poppins/400.css";
+
 
 * {
 
-  font-family: anton;
+  font-family: "Poppins";
+  font-weight: 700;
+  
+
+}
+p{
+  font-family: "Poppins";
   font-weight: 400;
-  font-style: normal;
+  font-style: normal;
+  font-size: 16px;
 
 }
