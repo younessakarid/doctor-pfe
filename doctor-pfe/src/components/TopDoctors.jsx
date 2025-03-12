@@ -13,7 +13,7 @@ function TopDoctors() {
 <div className='flex gap-5 flex-wrap justify-center items-center'>
   {doctors.slice(0,5).map((item, index) => (
     <div key={index} className='rounded-[20px] w-[220x] h-[350px] shadow-sm border border-gray-100 hover:border-[#252c62] transition-all duration-300 hover:scale-105'>
-      <div className='flex justify-center bg-gray-100 rounded-[20px]'>
+      <div className='flex justify-center bg-[#eaefff] rounded-[20px]'>
         <img src={item.image} alt="" className='w-[260px] h-[257px] px-6 pt-6'/>
       </div>
 
@@ -32,7 +32,7 @@ function TopDoctors() {
 
 {/* "More" button moved outside the doctor cards container for better layout */}
 <div className='flex justify-center mt-8'>
-  <button className='bg-[#252c62] text-white px-6 py-2 rounded-[65px] hover:scale-110 hover:bg-[#1b214f] transition-all duration-300'>
+  <button className='bg-[#eaefff] text-[#252c62] px-6 py-2 rounded-[65px] hover:scale-110 hover:bg-[#1b214f] transition-all duration-300 font-semibold hover:text-white'>
     More
   </button>
 </div>

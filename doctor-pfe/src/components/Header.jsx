@@ -2,6 +2,7 @@ import React from 'react'
 import head_image from '../assets/head-image.png'
 import dental from '../assets/dental.png';
 import icon_water from '../assets/icone-de-l-eau-bleue.png';
+import { GoArrowRight } from "react-icons/go";
 
 
 
@@ -13,7 +14,7 @@ function Header() {
         
 
                     <div>
-                       <h1 className='text-[210px] absolute top-0 left-50 z-[2] text-white blur-50 font-bold'>Dent Care</h1>
+                       <h1 className='text-[210px] absolute top-0 left-50 z-[2] text-white  font-bold'>Dent Care</h1>
 
                         <div className='flex justify-between absolute gap-100 top-1/2 left-100 items-center'>
                             <div className='flex gap-1 items-center'>
@@ -39,14 +40,14 @@ function Header() {
                      <img src={head_image} alt="" className='w-100 z-[3]' />
         
                      <div className='pb-10 pr-10 flex items-center gap-2'>
-  <button className='text-[17px] text-[#252c62] font-bold bg-[#e7c3d1] px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>
-    Book Consultation
-  </button>
-  <button className='bg-[#e7c3d1] w-10 h-10 rounded-full hover:scale-110 transition-all duration-200 flex justify-center items-center'>
+                  <button className='text-[17px] bg-[#eaefff] text-[#252c62] font-bold  px-8 py-2 rounded-[80px] hover:scale-110 transition-all duration-200'>
+                  Réserver une consultation
+                 </button>
+                 <button className='bg-[#eaefff] text-[#252c62] w-10 h-10 rounded-full hover:scale-110 transition-all duration-200 flex justify-center items-center'>
   
-    <span className="text-[#252c62] text-xl font-bold w-1"></span>
-  </button>
-</div>
+                 <span className="text-[#252c62] font-extrabold text-2xl"><GoArrowRight /></span>
+                 </button>
+                 </div>
 
                      
         

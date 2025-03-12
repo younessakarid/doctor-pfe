@@ -15,7 +15,7 @@ function Navbar() {
     
     <div>
 
-      <div className="flex justify-between items-center mt-4 mb-1 bg-gray-100 px-4 py-4 rounded-[15px]">
+      <div className="flex justify-between items-center mt-4 mb-1 bg-[#f5f7ff]  px-4 py-4 rounded-[15px]">
         <img onClick={()=> navigate('/')} src={logo} alt="logo" className='w-45 ' />
 
         <ul className='flex gap-10 items-center text-[17px]'>

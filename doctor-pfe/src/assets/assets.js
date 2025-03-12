@@ -5,6 +5,7 @@ import chirurgie_dentaire from '../assets/chirurgie_dentaire.png'
 import icon_water from '../assets/icone-de-l-eau-bleue.png'
 import icon_pilule from '../assets/icone-pilule.png'
 import Dentisterie_adhésive_et_esthétique from '../assets/Dentisterie_adhesive-et-esthetique.png'
+import logo from '../assets/logo.png'
 
 export const assets = {
   Esthetiqueprothese,
@@ -13,7 +14,8 @@ export const assets = {
   chirurgie_dentaire,
   icon_water,
   icon_pilule,
-  Dentisterie_adhésive_et_esthétique
+  Dentisterie_adhésive_et_esthétique,
+  logo
 
 }
 
