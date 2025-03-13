@@ -27,7 +27,7 @@ function UnderHeader() {
         </div>
         </div>
 
-        <div className='flex items-center px-3 py-2 bg-[#1e84b5]  rounded-[80px] text-white gap-2 hover:scale-110 transition-all duration-200 hover:animate-bounce'>
+        <div className='flex items-center px-3 py-2 bg-[#1e84b5]  rounded-[80px] text-white gap-2 hover:scale-110 transition-all duration-200 '>
                            <button>Prendre rendez-vous</button>
                            <GoArrowUpRight className='text-[#1e84b5] bg-white p-1 text-3xl rounded-full'  />
                           </div>

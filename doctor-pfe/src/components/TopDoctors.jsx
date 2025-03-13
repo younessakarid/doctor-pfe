@@ -5,8 +5,25 @@ import { doctors } from '../assets/assets'
 
 function TopDoctors() {
   return (
-    <div >
-
+    <div className='bg-[#f1f9ff] py-8 '>
+  <div className="w-screen relative left-1/2 -translate-x-1/2 py-12  px-7">
+      <div className="max-w-7xl mx-auto px-4 sm:px-[4%]">
+        <div className="text-center mb-8 animate_animated animate_slideInUp" >
+          <div className='flex items-center justify-center gap-1 pb-3'>
+            <WiStars className='text-2xl text-[#1e84b5]' />
+            <p className="text-[#1e84b5] font-small ">NOTRE ÉQUIPE</p>
+          </div>
+          
+          <h2 className="text-4xl font-bold mb-5">
+            <span className="text-[#1e84b5]">Notre Équipe</span>
+            <span className="text-[#1a3c5d]"> de Dentistes Sympathiques.</span>
+          </h2>
+          <p className="text-gray-600">
+          Des dentistes à l'écoute, offrant des soins de qualité pour un sourire éclatant.
+          </p>
+        </div>
+        </div>
+        </div>
 
 
 

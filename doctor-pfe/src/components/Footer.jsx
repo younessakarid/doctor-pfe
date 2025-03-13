@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'
 function Footer() {
   return (
 
-    <div className='mt-40 bg-[#0e384c] text-white pt-25 rounded-t-[90px] mb-0 relative '>
+    <div className='mt-40 bg-[#0e384c] text-white pt-25  mb-0 relative '>
      <div className='flex justify-around flex-wrap items-start pb-11'>
 
         
