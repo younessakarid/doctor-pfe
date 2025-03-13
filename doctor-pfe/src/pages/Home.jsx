@@ -4,15 +4,20 @@ import TopDoctors from '../components/TopDoctors';
 import LocationComponent from '../components/LocationComponent';
 import FirstSection from '../components/FirstSection'
 import VideoBanner from '../components/VideoBanner'
+import Assurance from '../components/Assurance'
+import ImageText from '../components/ImageText';
 
 function Home() {
   return (
     <>
       <Header />
+      <ImageText/>
       <FirstSection />
-      <TopDoctors />
       <VideoBanner />
+      <Assurance/>
+      <TopDoctors />
       <LocationComponent /> 
+
     </>
   );
 }

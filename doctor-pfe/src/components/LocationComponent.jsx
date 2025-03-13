@@ -4,7 +4,7 @@ import { BsTelephoneForward } from "react-icons/bs";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { RxTimer } from "react-icons/rx";
 import { WiStars } from "react-icons/wi";
-import { GoArrowUpRight } from "react-icons/go";
+import { FiArrowRight, FiCheck } from "react-icons/fi";
 
 function LocationComponent() {
   return (
@@ -23,36 +23,36 @@ function LocationComponent() {
 
            <div>
            <div className='flex items-center gap-2 pb-2'>
-            <WiStars className='text-l text-blue-500' />
-            <p className='text-l  text-blue-500'>CONTACT NOW</p>
+            <WiStars className='text-l text-[#1e84b5]' />
+            <p className='text-l  text-[#1e84b5]'>CONTACT NOW</p>
           </div>
-            <h1 className='text-4xl text-blue-900 font-bold'><span className='text-4xl text-blue-500 font-bold'>Obtenez</span> Une Consultation <br/>Professionnelle</h1>
+            <h1 className='text-4xl text-[#0e384c] font-bold'><span className='text-4xl text-[#1e84b5] font-bold'>Obtenez</span> Une Consultation <br/>Professionnelle Gratuite</h1>
           </div>
           
 
           <div className='flex items-center gap-3'>
-            <SlLocationPin className='text-2xl text-blue-500'  />
+            <SlLocationPin className='text-2xl  text-[#1e84b5]'  />
             <p className='text-blue-950'>59 Avenue de la Bourdonnais 75007 – PARIS</p>
           </div>
 
           <div className='flex items-center gap-3'>
-            <BsTelephoneForward className='text-2xl text-blue-500'  />
+            <BsTelephoneForward className='text-2xl  text-[#1e84b5]'  />
             <p className='text-blue-950'>+33 (0)1 45 63 20 00</p>
           </div>
 
           <div className='flex items-center gap-3'>
-            <MdOutlineMarkEmailUnread  className='text-2xl text-blue-500' />
+            <MdOutlineMarkEmailUnread  className='text-2xl  text-[#1e84b5]' />
             <p className='text-blue-950'>contact@dental7paris.com</p>
           </div>
 
           <div className='flex items-center gap-3'>
-            <RxTimer className='text-2xl text-blue-500' />
+            <RxTimer className='text-2xl text-[#1e84b5]' />
             <p className='text-blue-950'> lundi au vendredi de 9h00AM à 19h00PM</p>
           </div>
 
-          <div className='flex items-center gap-2 text-[17px]  text-white bg-[#252c62] py-2 pl-4 mr-57 rounded-[80px] hover:scale-110 transition-all duration-200'>
+          <div className='  flex items-center gap-2   mr-63 bg-[#1e84b5] text-white  font-medium py-2 px-4 rounded-full transition-all duration-300   hover:bg-[#0e384c]  hover:scale-105  '>
             <button>Prendre rendez-vous</button>
-            <GoArrowUpRight className='text-[#252c62] bg-white p-1 text-2xl rounded-full'  />
+             <FiArrowRight className="text-white" />
           </div>
 
           

@@ -4,13 +4,13 @@ import { doctors } from '../assets/assets'
 
 function TopDoctors() {
   return (
-    <div>
+    <div >
 
-<h1 className='flex justify-center pt-8 pb-4 font-bold text-2xl'>Les meilleurs médecins à réserver.</h1>
-<p className='flex justify-center pb-8 text-sm'>Parcourez simplement notre vaste liste de médecins de confiance.</p>
+
+
 
 {/* Container for the doctor cards */}
-<div className='flex gap-5 flex-wrap justify-center items-center'>
+<div className='flex gap-5 flex-wrap justify-center items-center '>
   {doctors.slice(0,5).map((item, index) => (
     <div key={index} className='rounded-[20px] w-[220x] h-[350px] shadow-sm border border-gray-100 hover:border-[#252c62] transition-all duration-300'>
       <div className='flex justify-center bg-[#eaefff] rounded-[20px]'>
