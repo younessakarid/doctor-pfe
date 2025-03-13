@@ -6,11 +6,13 @@ import FirstSection from '../components/FirstSection'
 import VideoBanner from '../components/VideoBanner'
 import Assurance from '../components/Assurance'
 import ImageText from '../components/ImageText';
+import UnderHeader from '../components/UnderHeader';
 
 function Home() {
   return (
     <>
       <Header />
+      <UnderHeader />
       <ImageText/>
       <FirstSection />
       <VideoBanner />
