@@ -1,9 +1,5 @@
 import React from 'react'
-import { SlLocationPin } from "react-icons/sl";
-import { BsTelephoneForward } from "react-icons/bs";
-import { MdOutlineMarkEmailUnread } from "react-icons/md";
-import { RxTimer } from "react-icons/rx";
-import { WiStars } from "react-icons/wi";
+
 import { GoArrowUpRight } from "react-icons/go";
 import hero_img from '../assets/hero_img.png'
 import { FaStar } from "react-icons/fa";
@@ -25,15 +21,15 @@ function Header() {
         
 
                    <div>
-                    <h1 className='text-6xl text-[#0e384c] font-bold'>Vivez<span className='text-6xl text-[#1e84b5] font-bold'> l'excellence<br/> dentaire</span>  avec une <br/>touche de douceur.</h1>
+                    <h1 className='text-5xl text-[#0e384c] font-bold'>Vivez<span className='text-5xl text-[#1e84b5] font-bold'> l'excellence<br/> dentaire</span>  avec une <br/>touche de douceur.</h1>
                   </div>
                   
         
                   <div>
-                    <p  className='text-[#5c7b8a]'>Il est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu <br/> lisible d'une page lorsqu'il en examine la mise en page. L'intérêt d'utiliser <br/>Lorem Ipsum est qu'il possède une distribution de lettres plus ou moins <br/> normale.</p>
+                    <p  className='text-[#5c7b8a]'>Il est un fait établi depuis longtemps qu'un lecteur sera distrait par le <br/>contenu  lisible d'une pagelorsqu'il en examine la mise en page.<br/>  L'intérêt d'utiliser Lorem Ipsum est qu'il possède une distribution <br/>de lettres plus ou moins  normale.</p>
                   </div>
         
-                  <div className='flex items-center gap-2 text-[17px]  text-white bg-[#1e84b5] py-[9px] pl-4 mr-80 rounded-[80px] hover:scale-110 transition-all duration-200 hover:animate-bounce'>
+                  <div className='flex items-center gap-2 text-[17px]  text-white bg-[#1e84b5] py-[9px] pl-4 mr-75 rounded-[80px] hover:scale-110 transition-all duration-200 hover:animate-bounce'>
                     <button>Prendre rendez-vous</button>
                     <GoArrowUpRight className='text-[#1e84b5] bg-white p-1 text-3xl rounded-full'  />
                   </div>
