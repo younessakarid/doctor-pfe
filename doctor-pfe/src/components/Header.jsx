@@ -12,7 +12,7 @@ function Header() {
     <div className="bg-[#eff8ff] w-full  overflow-x-hidden flex justify-center lg:pt-9 relative">
     <section className='w-full max-w-7xl h-auto px-4 lg:pl-10 pt-7 flex flex-col lg:flex-row justify-center items-center mb-0'>
 
-        {/* Text Content */}
+        
         <div className='flex flex-col pl-2 gap-4 md:gap-5 w-auto md:pt-6 lg:max-w-[50%]'>
           <h1 className='text-5xl md:text-6xl text-[#0e384c]  font-bold leading-tight'>
             Vivez<span className='text-[#1e84b5]'> l'excellence<br/> dentaire</span>  avec une <br/>touche de douceur.
@@ -24,7 +24,7 @@ function Header() {
             de lettres plus ou moins normale.
           </p>
 
-          {/* Bouton corrigé */}
+          
           <div className='flex items-center  gap-2 w-fit text-sm md:text-[17px] text-white bg-[#1e84b5] py-2 md:py-3 px-6 rounded-full hover:scale-105 transition-all duration-200'>
             <button className='whitespace-nowrap'>Prendre rendez-vous</button>
             <GoArrowUpRight className='text-[#1e84b5] bg-white p-1 text-3xl rounded-full shrink-0' />
@@ -40,11 +40,11 @@ function Header() {
             <span>based on 492 reviews</span>
           </div>
 
-          {/* Decorative Stars */}
+          
           <img src={star2} alt="" className='absolute w-20 md:w-40 opacity-25 animate-pulse top-14 left-19 hidden md:block' />
         </div>
 
-        {/* Image Section */}
+        
         <div className='relative mt-8 lg:mt-0 lg:ml-10'>
         <img 
            src={hero_img} 

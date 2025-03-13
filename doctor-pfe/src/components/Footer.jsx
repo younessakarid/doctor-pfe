@@ -7,7 +7,7 @@ function Footer() {
       <div className='container mx-auto px-4 md:px-8 lg:px-16'>
         <div className='flex flex-col md:flex-row justify-around gap-8 md:gap-4 lg:gap-6 pb-11'>
 
-          {/* Logo Section */}
+          
           <div className='flex gap-6 flex-col max-w-[350px] mx-auto md:mx-0'>
             <img src={logo} alt="Logo" className='w-32 md:w-45 mx-auto md:mx-0' />
             <p className='text-base md:text-l text-center md:text-left'>
@@ -17,7 +17,7 @@ function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
+          
           <div className='text-center md:text-left'>
             <h4 className='pb-4 font-bold text-lg md:text-xl'>Navigation</h4>
             <ul className='flex flex-col gap-2'>
@@ -28,7 +28,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Social Media */}
+          
           <div className='text-center md:text-left'>
             <h4 className='pb-4 font-bold text-lg md:text-xl'>Social Media</h4>
             <ul className='flex flex-col gap-2'>
@@ -36,7 +36,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          
           <div className='text-center md:text-left'>
             <h4 className='pb-4 font-bold text-lg md:text-xl'>Contactez-nous</h4>
             <div className='flex flex-col gap-2'>

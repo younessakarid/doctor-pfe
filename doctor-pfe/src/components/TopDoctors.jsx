@@ -24,7 +24,7 @@ function TopDoctors() {
       </div>
     </div>
 
-    {/* Container for the doctor cards */}
+    
     <div className='flex gap-5 flex-wrap justify-center items-center sm:gap-8'>
       {doctors.slice(0,5).map((item, index) => (
         <div key={index} className='rounded-[20px] w-[220px] sm:w-[250px] h-[300px] sm:h-[350px] border-gray-100 transition-all duration-300'>
@@ -44,7 +44,7 @@ function TopDoctors() {
       ))}
     </div>
 
-    {/* "More" button */}
+    
     <div className='flex justify-center mt-3 sm:mt-6'>
       <button className='bg-[#e7ecef] text-[#252c62] px-6 py-2 sm:px-8 sm:py-3 rounded-[65px] hover:scale-110 hover:bg-[#0e384c] transition-all duration-300 font-semibold hover:text-white'>
         More

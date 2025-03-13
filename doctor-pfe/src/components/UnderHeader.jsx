@@ -9,9 +9,9 @@ function UnderHeader() {
 
 
       <div className='max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0'>
-        {/* Left Section */}
+        
         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-7'>
-          {/* Phone Block */}
+          
           <div className='flex items-center gap-3'>
             <BsTelephoneXFill className='text-2xl md:text-3xl text-gray-100' />
             <div>
@@ -20,10 +20,10 @@ function UnderHeader() {
             </div>
           </div>
 
-          {/* Vertical Separator */}
+          
           <div className='text-white text-2xl opacity-15 hidden md:block'>|</div>
 
-          {/* Schedule Block */}
+          
           <div className='flex items-center gap-3'>
             <IoTimerOutline className='text-2xl md:text-3xl text-gray-100' />
             <div>
@@ -33,7 +33,7 @@ function UnderHeader() {
           </div>
         </div>
 
-        {/* Appointment Button */}
+     
         <div className='flex items-center gap-2 bg-[#1e84b5] rounded-full text-white 
                        px-4 py-2 md:px-6 md:py-3 hover:scale-105 md:hover:scale-110 
                        transition-all duration-200 hover:animate-none md:hover:animate-bounce
