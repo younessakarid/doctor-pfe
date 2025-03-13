@@ -108,7 +108,7 @@ export default function FirstSection(){
 
           <div className="mt-8">
            
-          <button className=" bg-[#1e84b5] text-white  text-white font-medium py-2 px-4 rounded-full transition-all duration-300   hover:bg-[#0e384c]  hover:scale-105">
+          <button className=" bg-[#1e84b5] text-white  font-medium py-2 px-4 rounded-full transition-all duration-300   hover:bg-[#0e384c]  hover:scale-105">
                                 <a href='#' className="flex items-center gap-2">
                                 View All Services
                              
