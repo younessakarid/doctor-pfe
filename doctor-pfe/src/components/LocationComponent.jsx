@@ -11,7 +11,7 @@ function LocationComponent() {
    <div className='flex justify-center items-center gap-20 pt-15 flex-wrap'>
 
     <iframe
-      className='rounded-[40px] filter brightness-85  transition-all duration-300 hover:brightness-110'
+      className='rounded-[40px] filter brightness-90 transition-all duration-300 hover:brightness-110'
       width="550"
       height="500"
       src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=59%20Avenue%20de%20la%20Bourdonnais%2075007%20%E2%80%93%20PARIS+(Dental%207%20Paris%20)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"

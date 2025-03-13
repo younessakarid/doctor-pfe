@@ -1,10 +1,11 @@
 import React from 'react'
 import logo from '../assets/logo.png'
 
+
 function Footer() {
   return (
 
-    <div className='mt-40 bg-[#0e384c] text-white pt-25 rounded-t-[90px] mb-0 '>
+    <div className='mt-40 bg-[#0e384c] text-white pt-25 rounded-t-[90px] mb-0 relative '>
      <div className='flex justify-around flex-wrap items-start pb-11'>
 
         
@@ -21,10 +22,10 @@ function Footer() {
             <h4 className='pb-4 font-bold text-xl'>Navigation</h4>
 
             <ul className='flex flex-col gap-2'>
-                <li><a href="" className='text-l'>Home</a></li>
-                <li><a href="" className='text-l'>About</a></li>
-                <li><a href="" className='text-l'>Contact</a></li>
-                <li><a href="" className='text-l'>Politique de confidentialité</a></li>
+                <li><a href="" className='text-l hover:text-[#1e84b5]'>Home</a></li>
+                <li><a href="" className='text-l hover:text-[#1e84b5]'>About</a></li>
+                <li><a href="" className='text-l hover:text-[#1e84b5]'>Contact</a></li>
+                <li><a href="" className='text-l hover:text-[#1e84b5]'>Politique de confidentialité</a></li>
             </ul>
 
         </div>
@@ -35,7 +36,7 @@ function Footer() {
             <h4 className='pb-4 font-bold text-xl'>Social Media</h4>
 
             <ul className='flex flex-col gap-2'>
-                <li><a href="" className='text-l'>Instagram</a></li>
+                <li><a href="" className='text-l hover:text-[#1e84b5]'>Instagram</a></li>
             </ul>
 
         </div>
@@ -53,6 +54,9 @@ function Footer() {
      </div>
        <hr className='pb-6  mx-24 opacity-45' />
        <p className='flex justify-center pb-5 text-l'>Copyright © 2025 Dental7Paris - All Right Reserved.</p>
+
+
+       
      </div>
   )
 }
