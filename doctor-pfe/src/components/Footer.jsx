@@ -1,15 +1,15 @@
 import React from 'react'
-import logo from '../assets/logo.png'
+import logoWhite from '../assets/logoWhite.png'
 
 function Footer() {
   return (
-    <div className='mt-40 bg-[#0e384c] text-white pt-16 md:pt-25 rounded-t-[20px] relative'>
+    <div className='mt-20 bg-[#0e384c] text-white pt-16 md:pt-25 rounded-t-[20px] relative'>
       <div className='container mx-auto px-4 md:px-8 lg:px-16'>
         <div className='flex flex-col md:flex-row justify-around gap-8 md:gap-4 lg:gap-6 pb-11'>
 
           
-          <div className='flex gap-6 flex-col max-w-[350px] mx-auto md:mx-0'>
-            <img src={logo} alt="Logo" className='w-32 md:w-45 mx-auto md:mx-0' />
+          <div className='flex gap-6  flex-col max-w-[350px] mx-auto md:mx-0'>
+            <img src={logoWhite} alt="Logo" className='w-32 md:w-45 mx-auto md:mx-0' />
             <p className='text-base md:text-l text-center md:text-left'>
               L'objectif de notre clinique est d'offrir des soins dentaires
               amicaux et attentionnés, ainsi que des traitements généraux, 
@@ -47,7 +47,7 @@ function Footer() {
 
         </div>
 
-        <hr className='pb-6 mx-4 md:mx-24 opacity-45' />
+        <hr className='pb-6 mx-4 md:mx-11 opacity-30' />
         <p className='text-center pb-5 text-base md:text-l px-4'>
           Copyright © 2025 Dental7Paris - All Right Reserved.
         </p>

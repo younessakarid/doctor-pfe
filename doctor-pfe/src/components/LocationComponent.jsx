@@ -8,8 +8,8 @@ import { FiArrowRight } from "react-icons/fi";
 
 function LocationComponent() {
   return (
-    <div className='flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 pt-8 md:pt-15 px-4 md:px-0'>
-      {/* Carte en premier sur desktop, deuxième sur mobile */}
+    <div className='flex flex-col md:flex-row justify-center pl-7  lg:mt-7 md:pl-9 items-center gap-10  md:gap-20 pt-8 md:pt-15 px-4 md:px-0'>
+      
       <iframe
         className='rounded-[40px] filter brightness-90 transition-all duration-300 hover:brightness-110 w-full max-w-[550px] h-64 md:h-[500px] order-2 md:order-1'
         src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=59%20Avenue%20de%20la%20Bourdonnais%2075007%20%E2%80%93%20PARIS+(Dental%207%20Paris%20)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
@@ -17,7 +17,6 @@ function LocationComponent() {
         <a href="https://www.gps.ie/collections/drones/">buy drones</a>
       </iframe>
 
-      {/* Section texte en deuxième sur mobile, première sur desktop */}
       <div className='flex flex-col gap-6 md:gap-10 max-w-[550px] w-full order-1 md:order-2'>
         <div>
           <div className='flex items-center gap-2 pb-2'>
