@@ -29,6 +29,8 @@ export default function Assurance() {
         </p>
       </div>
 
+      <div></div>
+
    
       <div className="text-center">
         <h1 className="text-[#0e384c] font-bold mb-1 text-[44px]">
