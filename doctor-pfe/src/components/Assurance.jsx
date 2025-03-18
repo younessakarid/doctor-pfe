@@ -29,7 +29,7 @@ export default function Assurance() {
         </p>
       </div>
 
-      <div></div>
+      
 
    
       <div className="text-center">
