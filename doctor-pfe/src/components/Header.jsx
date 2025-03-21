@@ -4,7 +4,7 @@ import hero_img from '../assets/hero_img.png'
 import { FaStar } from "react-icons/fa";
 import star1 from '../assets/star1.png'
 import star2 from '../assets/star2.png'
-import { PiTooth } from "react-icons/";
+import { PiTooth } from "react-icons/pi";
 import { GiToothbrush } from "react-icons/gi";
 
 function Header() {
