@@ -8,7 +8,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 function LocationComponent() {
   return (
-    <div className='flex flex-col md:flex-row justify-center pl-7  lg:mt-7 md:pl-9 items-center gap-10  md:gap-20 pt-8 md:pt-15 px-4 md:px-0'>
+    <div className='flex flex-col md:flex-row justify-center pl-7 mb-20 lg:mt-7 md:pl-9 items-center gap-10  md:gap-20 pt-8 md:pt-15 px-4 md:px-0'>
       
       <iframe
         className='rounded-[40px] filter brightness-90 transition-all duration-300 hover:brightness-110 w-full max-w-[550px] h-64 md:h-[500px] order-2 md:order-1'
