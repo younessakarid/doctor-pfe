@@ -5,8 +5,6 @@ import profile_pic from '../assets/profile_pic.png'
 import { RiArrowDropDownLine } from "react-icons/ri";
 import 'animate.css'
 
-
-
 function Navbar() {
   const [token, setToken] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +24,7 @@ function Navbar() {
           className='w-32 sm:w-40 md:w-48 lg:w-55 cursor-pointer' 
         />
 
-      
+        {/* Mobile menu button */}
         <button 
           className="md:hidden flex items-center text-[#082431]"
           onClick={toggleMenu}
@@ -56,7 +54,7 @@ function Navbar() {
           </svg>
         </button>
 
-       
+        {/* Desktop Menu */}
         <ul className='hidden md:flex gap-6 lg:gap-12 text-[#082431] items-center text-sm lg:text-[17px]'>
           <li className='hover:scale-110 transition-transform duration-300 ease-in-out'>
             <NavLink 
@@ -92,11 +90,26 @@ function Navbar() {
           </li>
         </ul>
 
-       
+        {/* Token area */}
         <div className="hidden md:block">
           {
             token ? 
-            <div></div>
+            <div className="flex items-center gap-2 cursor-pointer group relative">
+              <img className="w-8 rounded-full" src={profile_pic} alt="profile" />
+              <RiArrowDropDownLine className="w-6 h-6" />
+              <div className="absolute top-10 right-0 pt-2 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
+                <div className="min-w-[180px] bg-stone-100 rounded flex flex-col gap-2 p-4 shadow-md">
+                  <p onClick={()=>navigate('my-profile')} className="hover:text-[#1e84b5] cursor-pointer">My Profile</p>
+                  <p onClick={()=>navigate('my-appointments')} className="hover:text-[#1e84b5] cursor-pointer">My Appointments</p>
+                  <p 
+                    onClick={() => setToken(false)}
+                    className="hover:text-red-500 cursor-pointer"
+                  >
+                    Logout
+                  </p>
+                </div>
+              </div>
+            </div>
             : 
             <button 
               onClick={() => setToken(true)} 
@@ -108,9 +121,9 @@ function Navbar() {
         </div>
       </div>
 
-      
+      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#eff8ff] shadow-lg animate_animated animate_fadeIn">
+        <div className="md:hidden bg-[#eff8ff] shadow-lg animate__animated animate__fadeIn">
           <ul className='flex flex-col text-[#082431] text-center'>
             <li className='py-3 border-b border-gray-200 hover:bg-blue-50'>
               <NavLink 
@@ -148,7 +161,7 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
-           
+            
             {!token && (
               <li className='py-4'>
                 <button 
@@ -171,7 +184,8 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar
+
 
 
 
