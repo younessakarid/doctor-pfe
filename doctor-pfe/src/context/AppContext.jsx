@@ -17,7 +17,7 @@ const AppContextProvider = (props) => {
 
 }
 
-
+export default AppContextProvider;
 
 
 // import React, { createContext, useState, useContext } from 'react';
