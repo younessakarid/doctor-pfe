@@ -97,7 +97,7 @@ function Navbar() {
             <div className="flex items-center gap-2 cursor-pointer group relative">
               <img className="w-8 rounded-full" src={profile_pic} alt="profile" />
               <RiArrowDropDownLine className="w-6 h-6" />
-              <div className="absolute top-10 right-0 pt-2 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
+              <div className="absolute top-6 right-0 pt-2 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
                 <div className="min-w-[180px] bg-stone-100 rounded flex flex-col gap-2 p-4 shadow-md">
                   <p onClick={()=>navigate('my-profile')} className="hover:text-[#1e84b5] cursor-pointer">My Profile</p>
                   <p onClick={()=>navigate('my-appointments')} className="hover:text-[#1e84b5] cursor-pointer">My Appointments</p>
