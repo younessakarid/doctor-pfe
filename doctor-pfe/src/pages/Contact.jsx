@@ -51,23 +51,23 @@ function Contact() {
             {[
               {
                 icon: <SlLocationPin className="text-2xl text-[#1e84b5]" />,
-                title: "Visit Us On",
-                lines: ["24/11 Robert Road, New York, USA"],
+                title: "Visitez-nous sur",
+                lines: ["59 Avenue de la Bourdonnais 75007 – PARIS"],
               },
               {
                 icon: <BsTelephoneForward className="text-2xl text-[#1e84b5]" />,
-                title: "Contact Us",
-                lines: ["(+01) 789 854 856", "(+01) 789 854 856"],
+                title: "Contactez-nous",
+                lines: ["+33 (0)1 45 63 20 00"],
               },
               {
                 icon: <RxTimer className="text-2xl text-[#1e84b5]" />,
-                title: "Working Hours",
-                lines: ["Mon to Fri : 10:00 To 6:00", "Sat : 10:00AM To 3:00PM"],
+                title: "Heures de travail",
+                lines: ["lundi au vendredi de 9h00AM à 19h00PM"],
               },
               {
                 icon: <MdOutlineMarkEmailUnread className="text-2xl text-[#1e84b5]" />,
-                title: "Email Us",
-                lines: ["info@domainname.com", "sales@domainname.com"],
+                title: "Envoyez un email",
+                lines: ["contact@dental7paris.com"],
               },
             ].map((item, index) => (
               <div
