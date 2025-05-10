@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Header />
-      <UnderHeader />
+      <UnderHeader/>
       <ImageText/>
       <FirstSection />
       <VideoBanner />

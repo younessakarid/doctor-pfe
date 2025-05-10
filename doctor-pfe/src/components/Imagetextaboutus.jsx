@@ -1,16 +1,16 @@
 import React from "react";
 import { FiArrowRight, FiCheck } from "react-icons/fi";
-import imgtest from "../assets/imgtest.png"
+import industries from "../assets/industries.png"
 import { WiStars } from "react-icons/wi";
-import star1 from '../assets/star1.png'
 
-export default function ImageText() {
+
+export default function Imagetextaboutus() {
   return (
     <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row items-center gap-9 relative">
       
      
          <div className="relative w-full lg:w-1/2 ml-30 ">
-        <img  src={imgtest}   className="w-full rounded-lg  "/>
+        <img  src={industries}   className="w-full rounded-lg  "/>
       </div>
       <div className="w-full lg:w-1/2 mr-30">
         <div className="flex items-center gap-2 mb-2">
@@ -19,11 +19,11 @@ export default function ImageText() {
         </div>
         
         <h1 className="text-4xl text-[#0e384c] font-bold  mb-4">
-        <span className="text-[#1e84b5]">Votre voyage </span> vers un sourire plus sain commence ici
+        <span className="text-[#1e84b5]">Une passion </span>pour la santé dentaire et le bien-être de nos patients
         </h1>
    
         <p className="text-slate-600 mb-6">
-        L'objectif de notre clinique est de fournir une dentisterie amicale et attentionnée et le plus haut niveau de traitements dentaires généraux, cosmétiques et spécialisés. Avec des cabinets dentaires dans le monde entier.
+        Notre cabinet dentaire est né d’une volonté claire : offrir à chacun un sourire en pleine santé dans un cadre chaleureux, moderne et rassurant. Forts de plusieurs années d’expérience, nous mettons un point d’honneur à allier technologie de pointe, expertise médicale, et écoute du patient.
         </p>
         
         <div className="grid grid-cols-2 gap-y-3 gap-x-4 mb-6">
@@ -31,35 +31,34 @@ export default function ImageText() {
             <div className="bg-[#1e84b5] rounded-full p-1">
               <FiCheck className="text-white" />
             </div>
-            <span className="text-slate-700">Une équipe expérimentée</span>
+            <span className="text-slate-700"> Une approche humaine et personnalisée</span>
           </div>
           
           <div className="flex items-center gap-2">
             <div className="bg-[#1e84b5] rounded-full p-1">
               <FiCheck className="text-white" />
             </div>
-            <span className="text-slate-700">Services complets</span>
+            <span className="text-slate-700">Des équipements à la pointe de la technologie</span>
           </div>
           
           <div className="flex items-center gap-2">
             <div className="bg-[#1e84b5] rounded-full p-1">
               <FiCheck className="text-white" />
             </div>
-            <span className="text-slate-700">Technologie de pointe</span>
+            <span className="text-slate-700 ">Technologie de pointe</span>
           </div>
           
           <div className="flex items-center gap-2">
             <div className="bg-[#1e84b5] rounded-full p-1">
               <FiCheck className="text-white" />
             </div>
-            <span className="text-slate-700">Services dentaires d'urgence</span>
+            <span className="text-slate-700">Une équipe qualifiée et passionnée</span>
           </div>
         </div>
         
-        <button   className="bg-[#1e84b5] text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-[#0e384c] transition-all  hover:scale-105" onClick={() => navigate('/About')} >
+        <button className="bg-[#1e84b5] text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-[#0e384c] transition-all  hover:scale-105">
          En savoir plus
           <FiArrowRight className="text-white" />
-         
         </button>
       </div>
       
