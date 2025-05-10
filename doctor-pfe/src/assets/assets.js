@@ -6,6 +6,7 @@ import icon_water from '../assets/icone-de-l-eau-bleue.png'
 import icon_pilule from '../assets/icone-pilule.png'
 import Dentisterie_adhésive_et_esthétique from '../assets/Dentisterie_adhesive-et-esthetique.png'
 import logo from '../assets/logo.png'
+import profile_pic from '../assets/profile_pic.png'
 
 export const assets = {
   Esthetiqueprothese,
@@ -15,8 +16,8 @@ export const assets = {
   icon_water,
   icon_pilule,
   Dentisterie_adhésive_et_esthétique,
-  logo
-
+  logo,
+  profile_pic
 }
 
 
