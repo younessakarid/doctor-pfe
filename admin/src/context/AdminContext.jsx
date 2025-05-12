@@ -1,19 +1,17 @@
 import { createContext } from "react";
 
-export const AdminContext = createContext()
+export const AdminContext = createContext();
 
 const AdminContextProvider = (props) => {
-   
-    const value = {
-        
-    }
+  const value = {
+    // You can add state or functions here
+  };
 
-    return (
-        <AdminContextProvider>
-            {props.children}
-        </AdminContextProvider>
-    )
+  return (
+    <AdminContext.Provider value={value}>
+      {props.children}
+    </AdminContext.Provider>
+  );
+};
 
-}
-
-export default AdminContextProvider
+export default AdminContextProvider;

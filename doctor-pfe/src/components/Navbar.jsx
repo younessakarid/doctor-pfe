@@ -162,19 +162,59 @@ function Navbar() {
               </NavLink>
             </li>
             
-            {!token && (
-              <li className='py-4'>
-                <button 
-                  onClick={() => {
-                    setToken(true);
-                    setIsMenuOpen(false);
-                  }} 
-                  className='text-white bg-[#1e84b5] px-8 py-2 rounded-[80px] transition-all duration-200'
-                >
-                  Create account
-                </button>
-              </li>
-            )}
+            {token ? (
+  <div className="py-5 px-4 border-t border-gray-200 text-center">
+    <div className="flex flex-col items-center gap-2">
+      <img 
+        className="w-10 h-10 rounded-full object-cover" 
+        src={profile_pic} 
+        alt="profile" 
+      />
+      <div className="flex flex-col gap-1 text-sm font-medium text-[#082431]">
+        <p 
+          onClick={() => {
+            navigate('my-profile');
+            setIsMenuOpen(false);
+          }} 
+          className="hover:text-[#1e84b5] cursor-pointer"
+        >
+          My Profile
+        </p>
+        <p 
+          onClick={() => {
+            navigate('my-appointments');
+            setIsMenuOpen(false);
+          }} 
+          className="hover:text-[#1e84b5] cursor-pointer"
+        >
+          My Appointments
+        </p>
+        <p 
+          onClick={() => {
+            setToken(false);
+            setIsMenuOpen(false);
+          }} 
+          className="text-red-500 hover:underline cursor-pointer"
+        >
+          Logout
+        </p>
+      </div>
+    </div>
+  </div>
+) : (
+  <li className="py-4 text-center">
+    <button 
+      onClick={() => {
+        setToken(true);
+        setIsMenuOpen(false);
+      }} 
+      className="text-white bg-[#1e84b5] px-8 py-2 rounded-full transition-all duration-200"
+    >
+      Create account
+    </button>
+  </li>
+)}
+
           </ul>
         </div>
       )}
