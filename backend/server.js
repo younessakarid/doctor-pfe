@@ -6,14 +6,14 @@ import connectCloudinary from './config/cloudinary.js'
 import adminRouter from './routes/adminRoute.js'
 
 
-// app config
+// // app config
 const app = express()
 const port = process.env.PORT || 4000
 connectDB()
 connectCloudinary()
 
 
-// middlewares
+// // middlewares
 app.use(express.json())
 app.use(cors())
 
