@@ -51,7 +51,7 @@ function AddDoctor() {
 
             const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, { headers: { aToken } })
             if (data.success) {
-                toast.success(data.message)
+                toast.success('khdem',data.message)
                 setDocImg(false)
                 setName('')
                 setPassword('')
@@ -128,7 +128,7 @@ function AddDoctor() {
                         </div>
         
                         <div className='flex-1 flex flex-col gap-1'>
-                            <p>Honoraires</p>
+                            <p>Fees</p>
                             <input onChange={e => setFees(e.target.value)} value={fees} className='border rounded px-3 py-2' type="number" placeholder='Honoraires du médecin' required />
                         </div>
         
@@ -139,12 +139,11 @@ function AddDoctor() {
                         <div className='flex-1 flex flex-col gap-1'>
                             <p>Spécialité</p>
                             <select onChange={e => setSpeciality(e.target.value)} value={speciality} className='border rounded px-2 py-2'>
-                                <option value="General physician">Médecin généraliste</option>
-                                <option value="Gynecologist">Gynécologue</option>
-                                <option value="Dermatologist">Dermatologue</option>
-                                <option value="Pediatricians">Pédiatre</option>
-                                <option value="Neurologist">Neurologue</option>
-                                <option value="Gastroenterologist">Gastro-entérologue</option>
+                                <option value="General physician">Esthétique prothèse</option>
+                                <option value="Gynecologist">Implantologie esthétique prothèse</option>
+                                <option value="Dermatologist">Parodontologie exclusive</option>
+                                <option value="Pediatricians">chirurgie dentaire</option>
+                                <option value="Neurologist">Dentisterie adhésive et esthétique</option>
                             </select>
                         </div>
         
