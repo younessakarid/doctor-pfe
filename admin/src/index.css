@@ -1,1 +1,25 @@
 @import "tailwindcss";
+@import "@fontsource/poppins/700.css"; 
+@import "@fontsource/poppins/400.css";
+@import '@fontsource/poppins/600.css';
+
+
+
+* {
+
+  font-family: "Poppins";
+
+}
+p{
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+button{
+  font-family: "Poppins";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+}

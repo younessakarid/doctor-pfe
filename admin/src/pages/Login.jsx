@@ -1,66 +1,111 @@
-import React, { useState } from 'react';
+import axios from 'axios'
+import React, { useState, useContext } from 'react';
+import logo from'../assets/logo.png'
 
-function Login() {
-  const [state, setState] = useState('Admin');
+import { AdminContext } from '../context/AdminContext'
+import { toast } from 'react-toastify'
+import Cabiner from '../assets/Cabiner.png' 
 
-  return (
-    <form className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm flex flex-col gap-4">
-        <p className="text-2xl font-semibold text-center">
-          <span className="text-blue-600">{state}</span> Login
-        </p>
+const Login = () => {
+  const [state, setState] = useState('Admin')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-        <div>
-          <p className="text-sm font-medium mb-1">Email</p>
-          <input
-            type="email"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
+  
+  const { setAToken } = useContext(AdminContext)
 
-        <div>
-          <p className="text-sm font-medium mb-1">Password</p>
-          <input
-            type="password"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
+  const onSubmitHandler = async (event) => {
+    event.preventDefault()
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-        >
-          Login
-        </button>
-
-        <div className="text-center text-sm mt-2">
-          {state === 'Admin' ? (
-            <p>
-              Doctor Login?{' '}
-              <span
-                onClick={() => setState('Doctor')}
-                className="text-blue-600 cursor-pointer hover:underline"
-              >
-                Click here
-              </span>
-            </p>
-          ) : (
-            <p>
-              Admin Login?{' '}
-              <span
-                onClick={() => setState('Admin')}
-                className="text-blue-600 cursor-pointer hover:underline"
-              >
-                Click here
-              </span>
-            </p>
-          )}
-        </div>
-      </div>
-    </form>
-  );
+     if (state === 'Admin') {
+    const { data } = await axios.post(backendUrl + '/api/admin/login', { email, password })
+    if (data.success) {
+      console.log("Admin Token:", data.token) // Display the Admin token
+      setAToken(data.token)
+      localStorage.setItem('aToken', data.token)
+    } else {
+      toast.error(data.message)
+    }
+  }
 }
 
-export default Login;
+  return (
+    <form
+  onSubmit={onSubmitHandler}
+  className="flex items-center justify-center min-h-screen bg-cover bg-center shadow-sm "
+  style={{ backgroundImage: `url(${Cabiner})` }}
+>
+  <div className="bg-white bg-opacity-80 backdrop-blur-md p-10 rounded-xl shadow-xl w-full max-w-md flex flex-col gap-6 animate-fade-in">
+    <div className="flex justify-center">
+      <img
+        src={logo}
+        alt="logo"
+        className="w-32 cursor-pointer transition-transform hover:scale-105"
+        onClick={() => navigate('/')}
+      />
+    </div>
+
+    <h3 className="text-2xl font-bold text-center text-gray-800">
+      <span className="text-[#1e84b5]">{state}</span> Se connecter
+    </h3>
+
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+      <input
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        type="email"
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e84b5] transition-shadow"
+      />
+    </div>
+
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
+      <input
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        type="password"
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e84b5] transition-shadow"
+      />
+    </div>
+
+    <button
+      type="submit"
+      className="w-full py-2 px-4 rounded-lg text-white bg-[#1e84b5] hover:bg-[#166b92] transition-colors font-semibold shadow-md"
+    >
+      Se connecter
+    </button>
+
+    <div className="text-center text-sm mt-2 text-gray-600">
+      {state === 'Admin' ? (
+        <p>
+          Connexion médecin ?{' '}
+          <span
+            onClick={() => setState('Doctor')}
+            className="text-[#1e84b5] underline cursor-pointer hover:text-[#166b92]"
+          >
+            Cliquez ici
+          </span>
+        </p>
+      ) : (
+        <p>
+          Connexion administrateur ?{' '}
+          <span
+            onClick={() => setState('Admin')}
+            className="text-[#1e84b5] underline cursor-pointer hover:text-[#1e84b5]"
+          >
+            Cliquez ici
+          </span>
+        </p>
+      )}
+    </div>
+  </div>
+</form>
+
+  )
+}
+
+export default Login
