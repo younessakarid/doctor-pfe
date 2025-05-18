@@ -14,7 +14,7 @@ function AddDoctor() {
     const [experience, setExperience] = useState('1 Year')
     const [fees, setFees] = useState('')
     const [about, setAbout] = useState('')
-    const [speciality, setSpeciality] = useState('General physician')
+    const [speciality, setSpeciality] = useState('Esthétique prothèse')
     const [degree, setDegree] = useState('')
     const [address1, setAddress1] = useState('')
     const [address2, setAddress2] = useState('')
@@ -51,7 +51,7 @@ function AddDoctor() {
 
             const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, { headers: { aToken } })
             if (data.success) {
-                toast.success('khdem',data.message)
+                toast.success('Doctor ajouter',data.message)
                 setDocImg(false)
                 setName('')
                 setPassword('')
@@ -121,9 +121,26 @@ function AddDoctor() {
                                 <option value="4 Year">4 Ans</option>
                                 <option value="5 Year">5 Ans</option>
                                 <option value="6 Year">6 Ans</option>
+                                <option value="7 Year">7 Ans</option>
                                 <option value="8 Year">8 Ans</option>
                                 <option value="9 Year">9 Ans</option>
                                 <option value="10 Year">10 Ans</option>
+                                <option value="11 Year">11 Ans</option>
+                                <option value="12 Year">12 Ans</option>
+                                <option value="13 Year">13 Ans</option>
+                                <option value="14 Year">14 Ans</option>
+                                <option value="15 Year">15 Ans</option>
+                                <option value="16 Year">16 Ans</option>
+                                <option value="17 Year">17 Ans</option>
+                                <option value="18 Year">18 Ans</option>
+                                <option value="19 Year">19 Ans</option>
+                                <option value="20 Year">20 Ans</option>
+                                <option value="21 Year">21 Ans</option>
+                                <option value="22 Year">22 Ans</option>
+                                <option value="23 Year">23 Ans</option>
+                                <option value="24 Year">24 Ans</option>
+                                <option value="25 Year">25 Ans</option>
+                                
                             </select>
                         </div>
         
@@ -139,11 +156,11 @@ function AddDoctor() {
                         <div className='flex-1 flex flex-col gap-1'>
                             <p>Spécialité</p>
                             <select onChange={e => setSpeciality(e.target.value)} value={speciality} className='border rounded px-2 py-2'>
-                                <option value="General physician">Esthétique prothèse</option>
-                                <option value="Gynecologist">Implantologie esthétique prothèse</option>
-                                <option value="Dermatologist">Parodontologie exclusive</option>
-                                <option value="Pediatricians">chirurgie dentaire</option>
-                                <option value="Neurologist">Dentisterie adhésive et esthétique</option>
+                                <option value="Esthétique prothèse">Esthétique prothèse</option>
+                                <option value="Implantologie esthétique prothèse">Implantologie esthétique prothèse</option>
+                                <option value="Parodontologie exclusive">Parodontologie exclusive</option>
+                                <option value="chirurgie dentaire">chirurgie dentaire</option>
+                                <option value="Dentisterie adhésive et esthétique">Dentisterie adhésive et esthétique</option>
                             </select>
                         </div>
         

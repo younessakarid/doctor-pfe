@@ -62,7 +62,7 @@ export const doctors = [
 
     {
         _id: 'doc2',
-        name: 'Dr. Gary Finelle ',
+        name: 'Dr. Gary Finelle',
         image: Implantologie_esthetique_prothese,
         speciality: 'Implantologie esthétique prothèse',
         degree: 'C.E.S',

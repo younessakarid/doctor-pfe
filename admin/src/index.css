@@ -1,11 +1,11 @@
 @import "tailwindcss";
-@import "@fontsource/poppins/700.css"; 
+@import "@fontsource/poppins/700.css";  
 @import "@fontsource/poppins/400.css";
 @import '@fontsource/poppins/600.css';
 
 
 
-* {
+*{
 
   font-family: "Poppins";
 
@@ -22,4 +22,4 @@ button{
   font-weight: 600;
   font-style: normal;
   font-size: 14px;
-}
+} 
