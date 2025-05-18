@@ -30,12 +30,12 @@ function DoctorList() {
         <div className="p-4">
           <p className="text-lg font-semibold text-gray-800">{item.name}</p>
           <p className="text-sm text-gray-500">{item.speciality}</p>
-          <div className="mt-3 flex items-center gap-2 text-sm text-gray-600">
+          <div className="mt-3 flex  items-center  gap-2 text-sm text-gray-600">
             <input
               type="checkbox"
               checked={item.available}
               onChange={() => changeAvailability(item._id)}
-              className="accent-blue-600 "
+              className="accent-blue-600"
             />
             <span>Disponible</span>
           </div>
