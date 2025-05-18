@@ -20,7 +20,7 @@ function DoctorList() {
         key={index}
         className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200"
       >
-        <div className="bg-[#EAEFFF] h-48 flex items-center justify-center">
+        <div className="bg-[#eff8ff] h-48 flex items-center justify-center">
           <img
             src={item.image}
             alt={item.name}
