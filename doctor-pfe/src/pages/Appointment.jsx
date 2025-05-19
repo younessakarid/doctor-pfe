@@ -100,8 +100,15 @@ function Appointment() {
         </div>
         
         <div className='mt-3 text-xs sm:text-sm text-gray-600'>
-          <p>{docInfo.address}</p>
-        </div>
+           {typeof docInfo.address === 'object' ? (
+            <>
+            <p>{docInfo.address.line1}</p>
+            <p>{docInfo.address.line2}</p>
+            </>
+           ) : (
+        <p>{docInfo.address}</p>
+         )}
+       </div>
         
         <p className='text-gray-500 font-medium mt-4 text-sm sm:text-base'>
           frais de rendez-vous : <span className='text-gray-700'> € {docInfo.fees}</span>

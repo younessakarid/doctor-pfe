@@ -1,12 +1,37 @@
-import React from "react"; 
-import { doctors } from "../assets/assets";
-import { createContext } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import axios from 'axios';
 
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
+  const currencySymbol ='€'
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+  const [doctors, setDoctors] = useState([]);
+
+  const getDoctorsData = async () => {
+    try {
+      const { data } = await axios.get(backendUrl + '/api/doctor/list');
+      if (data.success) {
+        setDoctors(data.doctors);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to load doctors");
+    }
+  };
+
+  useEffect(() => {
+    getDoctorsData();
+  }, []);
+
   const value = {
     doctors,
+    currencySymbol,
+    getDoctorsData,
   };
 
   return (
@@ -17,30 +42,3 @@ const AppContextProvider = (props) => {
 };
 
 export default AppContextProvider;
-
-
-// import React, { createContext, useState, useContext } from 'react';
-// import { specialityData, doctors } from '../assets/assets'; // Importer vos données de médecins
-
-// // Créer un contexte
-// const AppContext = createContext();
-
-// // Le fournisseur du contexte
-// export const AppProvider = ({ children }) => {
-//   const [selectedSpeciality, setSelectedSpeciality] = useState(null);
-
-//   // Fonction pour filtrer les médecins par spécialité
-//   const filterDoctorsBySpeciality = (speciality) => {
-//     return doctors.filter((doctor) => doctor.speciality === speciality);
-//   };
-
-//   return (
-//     <AppContext.Provider value={{ selectedSpeciality, setSelectedSpeciality, filterDoctorsBySpeciality }}>
-//       {children}
-//     </AppContext.Provider>
-//   );
-// };
-
-// // Hook personnalisé pour accéder au contexte
-// export const useAppContext = () => useContext(AppContext);
-// export default AppContext;

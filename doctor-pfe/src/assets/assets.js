@@ -57,7 +57,11 @@ export const doctors = [
         experience: '25 Years',
         about: 'Le chirurgien-dentiste traite les problèmes bucco-dentaires : dents, gencives, nerfs et maxillaires. Il intervient pour le détartrage, les caries, les gencives irritées et la réparation des dents.',
         fees : 140,
-        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+         address: {
+            line1: '59 Avenue de la Bourdonnais',
+            line2: '75007 Paris'
+        }
+        
     },    
 
     {
@@ -69,7 +73,10 @@ export const doctors = [
         experience: '12 Years',
         about: 'Dr Gary Finelle, expert en implantologie à Paris, intègre les technologies numériques dans ses traitements. Diplômé de Paris 7 et spécialisé à Harvard, il enseigne et publie activement, avec plus de 30 articles et un rôle de professeur visiteur à Harvard.',
         fees : 140,
-        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+        address: {
+            line1: '59 Avenue de la Bourdonnais',
+            line2: '75007 Paris'
+        }
     },    
 
     {
@@ -81,7 +88,10 @@ export const doctors = [
         experience: '4 Years',
         about: 'Dr Gaëlle Botilde, chirurgienne-dentiste spécialisée en parodontologie et chirurgie buccale, est diplômée de Liège et a obtenu des spécialisations en implantologie et parodontologie européenne.',
         fees : 140,
-        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+        address: {
+            line1: '59 Avenue de la Bourdonnais',
+            line2: '75007 Paris'
+        }
     },    
 
     {
@@ -93,7 +103,10 @@ export const doctors = [
         experience: '4 Years',
         about: 'L\'endodontie traite les infections de la pulpe dentaire. Mon expertise consiste à éliminer les infections et restaurer les dents avec des techniques peu invasives et basées sur des données probantes.',
         fees : 490,
-        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+        address: {
+            line1: '59 Avenue de la Bourdonnais',
+            line2: '75007 Paris'
+        }
     },
     {
         _id: 'doc5',
@@ -104,7 +117,10 @@ export const doctors = [
         experience: '9 Years',
         about: 'Le docteur Anne Favreul vous accueille au sein de son cabinet.Le chirurgien-dentiste, aussi appelé dentiste, prend en charge les problèmes bucco-dentaires. Les patients peuvent notamment le consulter pour un détartrage, le soin d\'une carie, le soulagement de gencives irritées, la réparation d\'une dent abîmée, la réalisation de prothèses dentaires ainsi que pour une demande esthétique.',
         fees : 135,
-        address:'59 Avenue de la Bourdonnais, 75007 Paris'
+        address: {
+            line1: '59 Avenue de la Bourdonnais',
+            line2: '75007 Paris'
+        }
     }
     
 ]

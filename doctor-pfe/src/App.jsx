@@ -10,6 +10,8 @@ import MyAppointments from './pages/MyAppointments';
 import MyProfil from './pages/MyProfile';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const location = useLocation();
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div className='mx-0 sm:mx-[0%]'>
+      <ToastContainer />
       {!isLoginPage && <Navbar />}
 
       <Routes>
