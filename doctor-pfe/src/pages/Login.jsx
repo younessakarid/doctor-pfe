@@ -1,34 +1,54 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import cabinetimg from "../assets/cabinetimg.jpg";
-import logo from "../assets/logo.png"; // ⬅️ Ajout du logo
+import React, { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../context/AppContext'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import logo from '../assets/logo.png' // assure-toi que le chemin est correct
+import cabinetimg from '../assets/cabinetimg.jpg' // pareil ici
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [name, setName] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate();
+const Login = () => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isLogin) {
-      console.log("Connexion:", { email, password, rememberMe });
-    } else {
-      console.log("Inscription:", { name, email, password });
+  const [isLogin, setIsLogin] = useState(true)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
+  const { backendUrl, token, setToken } = useContext(AppContext)
+
+  const toggleMode = () => setIsLogin(!isLogin)
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    try {
+      if (!isLogin) {
+        const { data } = await axios.post(backendUrl + '/api/user/register', { name, email, password })
+        if (data.success) {
+          localStorage.setItem('token', data.token)
+          setToken(data.token)
+        } else {
+          toast.error(data.message)
+        }
+      } else {
+        const { data } = await axios.post(backendUrl + '/api/user/login', { email, password })
+        if (data.success) {
+          localStorage.setItem('token', data.token)
+          setToken(data.token)
+        } else {
+          toast.error(data.message)
+        }
+      }
+    } catch (err) {
+      toast.error("Une erreur s'est produite. Veuillez réessayer.")
     }
-  };
+  }
 
-  const toggleMode = () => {
-    setIsLogin(!isLogin);
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    setName("");
-    setRememberMe(false);
-  };
+  useEffect(() => {
+    if (token) {
+      navigate('/')
+    }
+  }, [token])
 
   return (
     <div className="h-screen flex">
@@ -59,7 +79,7 @@ export default function LoginPage() {
             </button>
           </p>
 
-          <div>
+          <form onSubmit={onSubmitHandler}>
             {!isLogin && (
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -104,67 +124,13 @@ export default function LoginPage() {
               />
             </div>
 
-            {!isLogin && (
-              <div className="mb-4">
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-                  Confirmez le mot de passe
-                </label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-              </div>
-            )}
-
-            {isLogin && (
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                  />
-                  <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
-                    Se souvenir de moi
-                  </label>
-                </div>
-              </div>
-            )}
-
-            {!isLogin && (
-              <div className="flex items-center mb-6">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                  required
-                />
-                <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                  J'accepte les{" "}
-                  <a href="#" className="text-[#1e84b5] hover:text-indigo-500">
-                    Conditions d'utilisation
-                  </a>{" "}
-                  et la{" "}
-                  <a href="#" className="text-[#1e84b5] hover:text-indigo-500">
-                    Politique de confidentialité
-                  </a>
-                </label>
-              </div>
-            )}
-
             <button
-              onClick={handleSubmit}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1e84b5] "
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1e84b5] hover:bg-[#156a94]"
             >
               {isLogin ? "Se connecter" : "Créer un compte"}
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -179,3 +145,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default Login
