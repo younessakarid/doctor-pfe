@@ -7,13 +7,15 @@ import 'animate.css';
 import { AppContext } from '../context/AppContext';
 
 function Navbar() {
-  const { token, setToken , userData} = useContext(AppContext);
+  const { token, setToken, userData } = useContext(AppContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const logout = () => {
     setToken(false);
     localStorage.removeItem('token');
+    navigate('/');
+    setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -23,23 +25,22 @@ function Navbar() {
   return (
     <div>
       <div className="flex justify-between items-center bg-[#eff8ff] px-4 sm:px-8 md:px-16 lg:px-30 py-4">
-        <img 
-          onClick={() => navigate('/')} 
-          src={logo} 
-          alt="logo" 
-          className='w-32 sm:w-40 md:w-48 lg:w-55 cursor-pointer' 
+        <img
+          onClick={() => navigate('/')}
+          src={logo}
+          alt="logo"
+          className='w-32 sm:w-40 md:w-48 lg:w-55 cursor-pointer'
         />
 
-        {/* Mobile menu button */}
-        <button 
+        <button
           className="md:hidden flex items-center text-[#082431]"
           onClick={toggleMenu}
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6" 
-            fill="none" 
-            viewBox="0 0 24 24" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
             stroke="currentColor"
           >
             {isMenuOpen ? (
@@ -50,7 +51,6 @@ function Navbar() {
           </svg>
         </button>
 
-        {/* Desktop Menu */}
         <ul className='hidden md:flex gap-6 lg:gap-12 text-[#082431] items-center text-sm lg:text-[17px]'>
           <li className='hover:scale-110 transition-transform duration-300 ease-in-out'>
             <NavLink to="/" className={({ isActive }) => (isActive ? "text-[#1e84b5] font-bold" : "")}>Home</NavLink>
@@ -66,12 +66,11 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Token area (Desktop) */}
         <div className="hidden md:block">
           {
-            token && userData ? 
+            token && userData ?
               <div className="flex items-center gap-2 cursor-pointer group relative">
-                <img className="w-8 rounded-full" src={userData.image} alt="profile" />
+                <img className="w-8 rounded-full object-cover" src={userData.image || profile_pic} alt="profile" />
                 <RiArrowDropDownLine className="w-6 h-6" />
                 <div className="absolute top-6 right-0 pt-2 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
                   <div className="min-w-[180px] bg-stone-100 rounded flex flex-col gap-2 p-4 shadow-md">
@@ -81,9 +80,9 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-            :
-              <button 
-                onClick={() => navigate('/login')} 
+              :
+              <button
+                onClick={() => navigate('/login')}
                 className='text-sm lg:text-[18px] text-white bg-[#1e84b5] px-4 lg:px-8 py-2 lg:py-[9px] rounded-[80px] hover:scale-110 transition-all duration-200 hover:animate-pulse'
               >
                 Create account
@@ -92,7 +91,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-[#eff8ff] shadow-lg animate__animated animate__fadeIn">
           <ul className='flex flex-col text-[#082431] text-center'>
@@ -112,22 +110,25 @@ function Navbar() {
             {token ? (
               <div className="py-5 px-4 border-t border-gray-200 text-center">
                 <div className="flex flex-col items-center gap-2">
-                  <img className="w-10 h-10 rounded-full object-cover" src={profile_pic} alt="profile" />
+                  <img
+                    className="w-10 h-10 rounded-full object-cover"
+                    src={userData?.image || profile_pic}
+                    alt="profile"
+                  />
                   <div className="flex flex-col gap-1 text-sm font-medium text-[#082431]">
                     <p onClick={() => { navigate('my-profile'); setIsMenuOpen(false); }} className="hover:text-[#1e84b5] cursor-pointer">My Profile</p>
                     <p onClick={() => { navigate('my-appointments'); setIsMenuOpen(false); }} className="hover:text-[#1e84b5] cursor-pointer">My Appointments</p>
-                    <p onClick={() => { setToken(false); setIsMenuOpen(false); }} className="text-red-500 hover:underline cursor-pointer">Logout</p>
+                    <p onClick={logout} className="text-red-500 hover:underline cursor-pointer">Logout</p>
                   </div>
                 </div>
               </div>
             ) : (
               <li className="py-4 text-center">
-                <button 
+                <button
                   onClick={() => {
                     navigate('/login');
                     setIsMenuOpen(false);
-                    
-                  }} 
+                  }}
                   className="text-white bg-[#1e84b5] px-8 py-2 rounded-full transition-all duration-200"
                 >
                   Create account
