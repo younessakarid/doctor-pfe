@@ -7,7 +7,7 @@ import 'animate.css';
 import { AppContext } from '../context/AppContext';
 
 function Navbar() {
-  const { token, setToken } = useContext(AppContext);
+  const { token, setToken , userData} = useContext(AppContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -69,9 +69,9 @@ function Navbar() {
         {/* Token area (Desktop) */}
         <div className="hidden md:block">
           {
-            token ? 
+            token && userData ? 
               <div className="flex items-center gap-2 cursor-pointer group relative">
-                <img className="w-8 rounded-full" src={profile_pic} alt="profile" />
+                <img className="w-8 rounded-full" src={userData.image} alt="profile" />
                 <RiArrowDropDownLine className="w-6 h-6" />
                 <div className="absolute top-6 right-0 pt-2 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
                   <div className="min-w-[180px] bg-stone-100 rounded flex flex-col gap-2 p-4 shadow-md">
