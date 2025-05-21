@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { assets } from '../assets/assets.js';
 
 const MyProfile = () => {
     const [isEdit, setIsEdit] = useState(false);
@@ -10,16 +9,31 @@ const MyProfile = () => {
     const { token, backendUrl, userData, setUserData, loadUserProfileData } = useContext(AppContext);
 
     const updateUserProfileData = async () => {
+        const phone = userData.phone?.trim();
+        const line1 = userData.address?.line1?.trim();
+        const line2 = userData.address?.line2?.trim();
+
+        if (!phone || phone === 'Non spécifié') {
+            toast.error("Veuillez saisir un numéro de téléphone valide.");
+            return;
+        }
+        if (!line1 || !line2) {
+            toast.error("Veuillez remplir les deux lignes de l'adresse.");
+            return;
+        }
+
         try {
             const formData = new FormData();
             formData.append('name', userData.name);
-            formData.append('phone', userData.phone);
-            formData.append('address', JSON.stringify(userData.address));
+            formData.append('phone', phone);
+            formData.append('address', JSON.stringify({ line1, line2 }));
             formData.append('gender', userData.gender);
             formData.append('dob', userData.dob);
             if (image) formData.append('image', image);
 
-            const { data } = await axios.post(`${backendUrl}/api/user/update-profile`, formData, { headers: { token } });
+            const { data } = await axios.post(`${backendUrl}/api/user/update-profile`, formData, {
+                headers: { token },
+            });
 
             if (data.success) {
                 toast.success("Profil mis à jour avec succès !");
@@ -35,7 +49,7 @@ const MyProfile = () => {
     };
 
     return userData ? (
-        <div className="max-w-2xl mx-auto mt-10 bg-white p-8 shadow-2xl rounded-3xl border border-gray-100 b-10 mb-10">
+        <div className="max-w-2xl mx-auto mt-10 bg-white p-8 shadow-2xl rounded-3xl border border-gray-100 mb-10">
             <div className="flex flex-col items-center gap-5">
                 <label htmlFor="image" className="relative group cursor-pointer">
                     <img
@@ -80,10 +94,15 @@ const MyProfile = () => {
                                 type="text"
                                 className="col-span-2 w-full bg-white border text-[#0e384c] border-gray-300 p-2 rounded-lg focus:outline-none focus:border-indigo-500"
                                 value={userData.phone}
+                                placeholder="Ex: +33 712345678"
                                 onChange={(e) => setUserData(prev => ({ ...prev, phone: e.target.value }))}
                             />
                         ) : (
-                            <p className="col-span-2 text-[#0e384c]">{userData.phone}</p>
+                            <p className="col-span-2 text-[#0e384c]">
+                                {userData.phone?.trim()
+                                    ? userData.phone
+                                    : <span className="text-gray-400 italic">Entrez votre numéro</span>}
+                            </p>
                         )}
 
                         <p className="font-medium text-gray-700">Adresse :</p>
@@ -93,6 +112,7 @@ const MyProfile = () => {
                                     type="text"
                                     className="w-full bg-white border border-gray-300 p-2 rounded-lg focus:outline-none focus:border-indigo-500"
                                     value={userData.address.line1}
+                                    placeholder="Adresse Ligne 1"
                                     onChange={(e) =>
                                         setUserData(prev => ({
                                             ...prev,
@@ -104,6 +124,7 @@ const MyProfile = () => {
                                     type="text"
                                     className="w-full bg-white border border-gray-300 p-2 rounded-lg focus:outline-none focus:border-indigo-500"
                                     value={userData.address.line2}
+                                    placeholder="Adresse Ligne 2"
                                     onChange={(e) =>
                                         setUserData(prev => ({
                                             ...prev,
@@ -113,7 +134,16 @@ const MyProfile = () => {
                                 />
                             </div>
                         ) : (
-                            <p className="col-span-2 text-gray-700">{userData.address.line1}<br />{userData.address.line2}</p>
+                            <p className="col-span-2 text-gray-700">
+                                {userData.address?.line1?.trim() || userData.address?.line2?.trim() ? (
+                                    <>
+                                        {userData.address.line1}<br />
+                                        {userData.address.line2}
+                                    </>
+                                ) : (
+                                    <span className="text-gray-400 italic">Entrez votre adresse</span>
+                                )}
+                            </p>
                         )}
                     </div>
                 </section>
@@ -128,12 +158,14 @@ const MyProfile = () => {
                                 value={userData.gender}
                                 onChange={(e) => setUserData(prev => ({ ...prev, gender: e.target.value }))}
                             >
-                                <option value="Non sélectionné">Non spécifié</option>
+                                <option value="Non spécifié">Non spécifié</option>
                                 <option value="Male">Homme</option>
                                 <option value="Female">Femme</option>
                             </select>
                         ) : (
-                            <p className="col-span-2 text-gray-700">{userData.gender === "Male" ? "Homme" : userData.gender === "Female" ? "Femme" : "Non spécifié"}</p>
+                            <p className="col-span-2 text-gray-700">
+                                {userData.gender === "Male" ? "Homme" : userData.gender === "Female" ? "Femme" : "Non spécifié"}
+                            </p>
                         )}
 
                         <p className="font-medium text-gray-700">Date de naissance :</p>
