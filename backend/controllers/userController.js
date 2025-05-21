@@ -2,7 +2,9 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
 import userModel from "../models/userModel.js";
-import { v2 as cloudinary } from 'cloudinary'
+import doctorModel from "../models/doctorModel.js"; // ✅ Add this line
+import appointmentModel from "../models/appointmentModel.js"; // ✅ Add this line
+import { v2 as cloudinary } from 'cloudinary';
 
 export const registerUser = async (req,res) => {
     try {
@@ -64,11 +66,9 @@ export const loginUser = async (req,res) => {
 };
 
 // API to get user profile data
-// change
-
 export const getProfile = async (req, res) => {
   try {
-    console.log("Decoded userId:", req.userId); // <-- DEBUG LINE
+    console.log("Decoded userId:", req.userId);
 
     const userData = await userModel.findById(req.userId).select('-password');
     res.json({ success: true, userData });
@@ -78,13 +78,12 @@ export const getProfile = async (req, res) => {
   }
 };
 
-
 // API to update user profile
 export const updateProfile = async (req, res) => {
   try {
     const { name, phone, address, dob, gender } = req.body;
     const imageFile = req.file;
-    const userId = req.userId; 
+    const userId = req.userId;
 
     if (!name || !phone || !dob || !gender) {
       return res.json({ success: false, message: "Data Missing" });
@@ -112,4 +111,76 @@ export const updateProfile = async (req, res) => {
     console.log(error);
     res.json({ success: false, message: error.message });
   }
+};
+
+export const listAppointment = async (req, res) => {
+    try {
+        const userId = req.userId;  
+
+        const appointments = await appointmentModel.find({ userId }).populate('docId');
+
+       
+        const formatted = appointments.map((appointment) => ({
+            ...appointment._doc,
+            docData: appointment.docId,
+        }));
+
+        res.json({ success: true, appointments: formatted });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+// API to book appointment
+export const bookAppointment = async (req, res) => {
+    try {
+        const { userId, docId, slotDate, slotTime } = req.body;
+        const docData = await doctorModel.findById(docId).select("-password");
+
+        if (!docData.available) {
+            return res.json({ success: false, message: 'Doctor Not Available' });
+        }
+
+        let slots_booked = docData.slots_booked;
+
+        // checking for slot availability 
+        if (slots_booked[slotDate]) {
+            if (slots_booked[slotDate].includes(slotTime)) {
+                return res.json({ success: false, message: 'Slot Not Available' });
+            }
+            else {
+                slots_booked[slotDate].push(slotTime);
+            }
+        } else {
+            slots_booked[slotDate] = [];
+            slots_booked[slotDate].push(slotTime);
+        }
+
+        const userData = await userModel.findById(userId).select("-password");
+
+        delete docData.slots_booked;
+
+        const appointmentData = {
+            userId,
+            docId,
+            userData,
+            docData,
+            amount: docData.fees,
+            slotTime,
+            slotDate,
+            date: Date.now()
+        };
+
+        const newAppointment = new appointmentModel(appointmentData);
+        await newAppointment.save();
+
+        await doctorModel.findByIdAndUpdate(docId, { slots_booked });
+
+        res.json({ success: true, message: 'Appointment Booked' });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
 };

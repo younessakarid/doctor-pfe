@@ -1,5 +1,6 @@
 import React from "react";
-import CountUp from "react-countup";
+
+
 
 export default function Assurance() {
   return (
@@ -7,7 +8,7 @@ export default function Assurance() {
 
       <div className="text-center">
         <h1 className="text-[#0e384c] font-bold mb-1 text-[44px]">
-          <CountUp end={75} duration={2} />+
+        75+
         </h1>
         <h2 className="text-[20px] text-[#0e384c] mb-2">Assurances Acceptées</h2>
         <hr className="color-blue-500 opacity-15 my-4 mx-auto w-16" />
@@ -19,7 +20,7 @@ export default function Assurance() {
 
       <div className="text-center">
         <h1 className="text-[#0e384c] font-bold mb-1 text-[44px]">
-          <CountUp end={2} duration={2} />K
+          2K
         </h1>
         <h2 className="text-[20px] text-[#0e384c] mb-2">Projets Réalisés</h2>
         <hr className="color-blue-500 opacity-15 my-4 mx-auto w-16" />
@@ -34,7 +35,7 @@ export default function Assurance() {
    
       <div className="text-center">
         <h1 className="text-[#0e384c] font-bold mb-1 text-[44px]">
-          <CountUp end={22} duration={2} />K
+          22K
         </h1>
         <h2 className="text-[20px] text-[#0e384c] mb-2">Clients Satisfaits</h2>
         <hr className="color-blue-500 opacity-15 my-4 mx-auto w-16" />
@@ -47,7 +48,7 @@ export default function Assurance() {
   
       <div className="text-center">
         <h1 className="text-[#0e384c] font-bold mb-1 text-[44px]">
-          <CountUp end={18} duration={2} />+
+          18+
         </h1>
         <h2 className="text-[20px] text-[#0e384c] mb-2">Médecins Expérimentés</h2>
         <hr className="color-blue-500 opacity-15 my-4 mx-auto w-16" />
