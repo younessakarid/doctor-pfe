@@ -12,10 +12,6 @@ function Header() {
     <div className="bg-[#eff8ff] w-full  overflow-x-hidden flex justify-center lg:pt-9 relative">
     <section className='w-full max-w-7xl h-auto px-4 lg:pl-10 pt-7 flex flex-col lg:flex-row justify-center items-center mb-0'>
 
-<<<<<<< Updated upstream
-=======
-        <section className='bg-[#0e384c] w-full h-[500px] mt-10  pr-16 rounded-[55px] flex justify-between items-end relative'>
->>>>>>> Stashed changes
         
         <div className='flex flex-col pl-2 gap-4 md:gap-5 w-auto md:pt-6 lg:max-w-[50%]'>
           <h1 className='text-5xl md:text-6xl text-[#0e384c]  font-bold leading-tight'>

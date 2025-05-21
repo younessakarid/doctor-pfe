@@ -115,22 +115,17 @@ export const updateProfile = async (req, res) => {
 
 export const listAppointment = async (req, res) => {
     try {
-        const userId = req.userId;  
+        const userId = req.userId;
 
-        const appointments = await appointmentModel.find({ userId }).populate('docId');
+        const appointments = await appointmentModel.find({ userId });
 
-       
-        const formatted = appointments.map((appointment) => ({
-            ...appointment._doc,
-            docData: appointment.docId,
-        }));
-
-        res.json({ success: true, appointments: formatted });
+        res.json({ success: true, appointments });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message });
     }
 };
+
 
 // API to book appointment
 export const bookAppointment = async (req, res) => {
