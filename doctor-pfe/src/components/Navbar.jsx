@@ -66,6 +66,7 @@ function Navbar() {
           </li>
         </ul>
 
+<<<<<<< Updated upstream
         <div className="hidden md:block">
           {
             token && userData ?
@@ -88,6 +89,16 @@ function Navbar() {
                 Create account
               </button>
           }
+=======
+        <div>
+        {
+            token ? 
+            <div></div>
+            : <button onClick={()=> settoken(true)} className='text-[17px] text-white bg-[#0e384c] px-8 py-2 rounded-[80px] hover:scale-110 transition-all hover:animate-pulse duration-200'>Create account</button>
+        }
+        
+        
+>>>>>>> Stashed changes
         </div>
       </div>
 
