@@ -107,7 +107,7 @@ export const updateProfile = async (req, res) => {
 
     await userModel.findByIdAndUpdate(userId, updateData);
 
-    res.json({ success: true, message: "Profile Updated" });
+    res.json({ success: true, message: "Profil mis à jour" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
