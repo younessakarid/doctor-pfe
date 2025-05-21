@@ -14,6 +14,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MouseFollower from './components/MouseFollower'; // add this line
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,8 @@ function App() {
   return (
     <div className='mx-0 sm:mx-[0%]'>
       <ToastContainer />
+      <MouseFollower /> {/* Add this here */}
+
       {!isLoginPage && <Navbar />}
 
       <Routes>
@@ -37,11 +40,9 @@ function App() {
       </Routes>
 
       <Footer />
-
-      
-
     </div>
   );
 }
+
 
 export default App;
