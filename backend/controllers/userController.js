@@ -180,27 +180,27 @@ export const bookAppointment = async (req, res) => {
     }
 };
 
-// API to cancel appointment
+// API pour annuler un rendez-vous
 export const cancelAppointment = async (req, res) => {
   try {
     const { appointmentId } = req.body;
-    const userId = req.userId; // Get from auth middleware
+    const userId = req.userId; // Récupéré depuis le middleware d'authentification
 
     const appointmentData = await appointmentModel.findById(appointmentId);
 
     if (!appointmentData) {
-      return res.json({ success: false, message: 'Appointment not found' });
+      return res.json({ success: false, message: 'Rendez-vous introuvable' });
     }
 
-    // Compare userId safely
+    // Comparaison sécurisée de userId
     if (appointmentData.userId.toString() !== userId) {
-      return res.json({ success: false, message: 'Unauthorized action' });
+      return res.json({ success: false, message: 'Action non autorisée' });
     }
 
-    // Mark the appointment as cancelled
+    // Marquer le rendez-vous comme annulé
     await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
 
-    // Release the doctor's booked slot
+    // Libérer le créneau réservé chez le médecin
     const { docId, slotDate, slotTime } = appointmentData;
     const doctorData = await doctorModel.findById(docId);
 
@@ -211,7 +211,7 @@ export const cancelAppointment = async (req, res) => {
 
     await doctorModel.findByIdAndUpdate(docId, { slots_booked });
 
-    res.json({ success: true, message: 'Appointment Cancelled' });
+    res.json({ success: true, message: 'Rendez-vous annulé' });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });

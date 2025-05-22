@@ -11,6 +11,7 @@ const AdminContextProvider = (props) => {
 
     const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
     const [doctors, setDoctors] = useState([])
+    const [appointments, setAppointments] = useState([])
    
     
     // Getting all Doctors data from Database using API
@@ -52,14 +53,71 @@ const AdminContextProvider = (props) => {
         }
     }
 
+
     
+
+const getAllAppointments = async () => {
+  try {
+    console.log("Token used:", aToken);
+
+    const response = await axios.get(`${backendUrl}/api/admin/appointments`, {
+      headers: {
+        atoken: aToken
+      }
+    });
+
+    console.log('Full response:', response.data); // Log full response
+
+    const data = response.data;
+
+    if (data.success) {
+      console.log('Appointments:', data.appointments); // Log appointments
+      setAppointments(data.appointments);
+    } else {
+      console.warn('Backend error:', data.message);
+      toast.error(data.message);
+    }
+
+  } catch (error) {
+    console.error('Request failed:', error);
+    toast.error(error.response?.data?.message || error.message);
+  }
+};
+
+
+ // Function to cancel appointment using API
+    const cancelAppointment = async (appointmentId) => {
+
+        try {
+
+            const { data } = await axios.post(backendUrl + '/api/admin/cancel-appointment', { appointmentId }, { headers: { aToken } })
+
+            if (data.success) {
+                toast.success(data.message)
+                getAllAppointments()
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+            console.log(error)
+        }
+
+    }
+
+
+
 
    
 
     const value = {
         aToken, setAToken,
        backendUrl,doctors,
-       getAllDoctors,changeAvailability
+       getAllDoctors,changeAvailability,
+       appointments,setAppointments,
+       getAllAppointments,
+       cancelAppointment,
 
     }
 
