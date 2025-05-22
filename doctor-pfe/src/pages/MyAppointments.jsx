@@ -5,7 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 function MyAppointments() {
-  const { backendUrl, token } = useContext(AppContext)
+  const { backendUrl, token , getDoctorsData } = useContext(AppContext)
   const navigate = useNavigate()
   const [appointments, setAppointments] = useState([])
   const [loading, setLoading] = useState(true)
@@ -33,22 +33,29 @@ function MyAppointments() {
     }
   }
 
-  const handleCancelAppointment = async (appointmentId) => {
-    try {
-      const { data } = await axios.post(`${backendUrl}/api/user/cancel-appointment`, { appointmentId }, {
-        headers: { token }
-      })
 
-      if (data.success) {
-        toast.success(data.message)
-        getUserAppointments()
-      } else {
-        toast.error(data.message)
-      }
-    } catch (error) {
-      toast.error(error.message || "Erreur lors de l'annulation")
+
+    // Function to cancel appointment Using API
+    const cancelAppointment = async (appointmentId) => {
+
+        try {
+
+            const { data } = await axios.post(backendUrl + '/api/user/cancel-appointment', { appointmentId }, { headers: { token } })
+
+            if (data.success) {
+                toast.success(data.message)
+                getUserAppointments()
+                getDoctorsData()
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+
     }
-  }
 
   useEffect(() => {
     if (token) {
@@ -111,7 +118,7 @@ function MyAppointments() {
                 <div className="flex flex-col md:items-end gap-3 mt-6 md:mt-0 text-sm">
                   {!item.cancelled && !item.isCompleted && (
                     <button
-                      onClick={() => handleCancelAppointment(item._id)}
+                      onClick={() => cancelAppointment(item._id)}
                       className="border border-gray-400 px-5 py-2 rounded-md hover:bg-red-500 hover:text-white w-full md:w-auto transition"
                     >
                       Annuler le rendez-vous
