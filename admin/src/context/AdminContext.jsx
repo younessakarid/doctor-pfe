@@ -12,6 +12,8 @@ const AdminContextProvider = (props) => {
     const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
     const [doctors, setDoctors] = useState([])
     const [appointments, setAppointments] = useState([])
+    const [dashData, setDashData] = useState(false)
+    
    
     
     // Getting all Doctors data from Database using API
@@ -106,7 +108,23 @@ const getAllAppointments = async () => {
 
     }
 
-
+  const getDashData = async () => {
+          try {
+  
+              const { data } = await axios.get(backendUrl + '/api/admin/dashboard', { headers: { aToken } })
+  
+              if (data.success) {
+                  setDashData(data.dashData)
+              } else {
+                  toast.error(data.message)
+              }
+  
+          } catch (error) {
+              console.log(error)
+              toast.error(error.message)
+          }
+  
+      }
 
 
    
@@ -118,7 +136,7 @@ const getAllAppointments = async () => {
        appointments,setAppointments,
        getAllAppointments,
        cancelAppointment,
-
+       dashData,getDashData
     }
 
     return (
