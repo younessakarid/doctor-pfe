@@ -88,7 +88,7 @@ function DoctorList() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="h-60 w-50 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   
                   {/* Status Badge */}
