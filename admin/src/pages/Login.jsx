@@ -1,42 +1,58 @@
 import axios from 'axios'
 import React, { useState, useContext } from 'react';
 import logo from'../assets/logo.png'
-
-import { AdminContext } from '../context/AdminContext'
+import { AdminContext} from '../context/AdminContext.jsx'
 import { toast } from 'react-toastify'
 import Cabiner from '../assets/Cabiner.png' 
+import { DoctorContext } from '../context/DoctorContext.jsx';
+
+
 
 const Login = () => {
   const [state, setState] = useState('Admin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const backendUrl = import.meta.env.VITE_BACKEND_URL
-  const { setDToken } = useContext(DoctorContext)
 
-  
+  const { setDToken } = useContext(DoctorContext)
   const { setAToken } = useContext(AdminContext)
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault()
+  event.preventDefault();
 
-     if (state === 'Admin') {
-    const { data } = await axios.post(backendUrl + '/api/admin/login', { email, password })
-    if (data.success) {
-      console.log("Admin Token:", data.token) // Display the Admin token
-      setAToken(data.token)
-      localStorage.setItem('aToken', data.token)
-    } else {
-      const { data } = await axios.post(backendUrl + '/api/doctor/login', { email, password })
+  try {
+    if (state === 'Admin') {
+      const { data } = await axios.post(`${backendUrl}/api/admin/login`, { email, password });
+
       if (data.success) {
-        setDToken(data.token)
-        localStorage.setItem('dToken', data.token)
+        console.log("Admin Token:", data.token);
+        setAToken(data.token);
+        localStorage.setItem('aToken', data.token);
+        toast.success("Connexion administrateur réussie !");
+        // navigate('/admin-dashboard'); // Optional
       } else {
-        toast.error(data.message)
+        toast.error(data.message || "Échec de la connexion administrateur");
       }
 
+    } else if (state === 'Doctor') {
+      const { data } = await axios.post(`${backendUrl}/api/doctor/login`, { email, password });
+
+      if (data.success) {
+        console.log("Doctor Token:", data.token);
+        setDToken(data.token);
+        localStorage.setItem('dToken', data.token);
+        toast.success("Connexion médecin réussie !");
+        // navigate('/doctor-dashboard'); // Optional
+      } else {
+        toast.error(data.message || "Échec de la connexion médecin");
+      }
     }
+  } catch (error) {
+    console.error("Login error:", error);
+    toast.error("Une erreur est survenue pendant la connexion");
   }
-}
+};
+
 
   return (
     <form

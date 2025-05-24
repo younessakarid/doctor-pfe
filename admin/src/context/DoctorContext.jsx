@@ -1,4 +1,5 @@
-import { createContext } from "react";
+import React,{ createContext, useState} from "react";
+
 
 export const DoctorContext = createContext()
 
@@ -13,7 +14,7 @@ const DoctorContextProvider = (props) => {
     const value = {
         dToken,
         setDToken,
-        backendUrl
+        backendUrl,
     }
 
     return (
