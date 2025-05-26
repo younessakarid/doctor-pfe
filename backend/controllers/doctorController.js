@@ -1,6 +1,7 @@
 import doctorModel from "../models/doctorModel.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import appointmentModel from "../models/appointmentModel.js";
 
 
 // API to change doctor availablity for Admin and Doctor Panel
@@ -62,4 +63,109 @@ const loginDoctor = async (req, res) => {
 
 
 
-export {changeAvailablity,doctorList,loginDoctor}
+// API to get doctor appointments for doctor panel
+const appointmentsDoctor = async (req, res) => {
+    try {
+
+        const docId = req.docId;
+        const appointments = await appointmentModel.find({ docId })
+
+        res.json({ success: true, appointments })
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+
+// API pour annuler un rendez-vous (interface médecin)
+const appointmentCancel = async (req, res) => {
+    try {
+        const { appointmentId } = req.body;
+        const docId = req.docId; // récupéré via middleware
+
+        const appointmentData = await appointmentModel.findById(appointmentId);
+
+        if (appointmentData && appointmentData.docId.toString() === docId.toString()) {
+            await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+            return res.json({ success: true, message: 'Rendez-vous annulé avec succès.' });
+        }
+
+        res.json({ success: false, message: 'Impossible d\'annuler ce rendez-vous.' });
+
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, message: "Erreur serveur : " + error.message });
+    }
+};
+
+
+// API to mark appointment completed for doctor panel
+const appointmentComplete = async (req, res) => {
+    try {
+        const { appointmentId } = req.body;
+        const docId = req.docId; // récupéré via le middleware
+
+        const appointmentData = await appointmentModel.findById(appointmentId);
+
+        if (appointmentData && appointmentData.docId.toString() === docId.toString()) {
+            await appointmentModel.findByIdAndUpdate(appointmentId, { isCompleted: true });
+            return res.json({ success: true, message: 'Rendez-vous marqué comme terminé.' });
+        }
+
+        res.json({ success: false, message: 'Impossible de terminer ce rendez-vous (annulé ou non trouvé).' });
+
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, message: "Erreur serveur : " + error.message });
+    }
+};
+
+
+// API to get dashboard data for doctor panel
+const doctorDashboard = async (req, res) => {
+    try {
+
+        const docId = req.docId
+
+
+        const appointments = await appointmentModel.find({ docId })
+
+        let earnings = 0
+
+        appointments.map((item) => {
+            if (item.isCompleted) {
+                earnings += item.amount
+            }
+        })
+
+        let patients = []
+
+        appointments.map((item) => {
+            if (!patients.includes(item.userId)) {
+                patients.push(item.userId)
+            }
+        })
+
+
+
+        const dashData = {
+            earnings,
+            appointments: appointments.length,
+            patients: patients.length,
+            latestAppointments: appointments.reverse()
+        }
+
+        res.json({ success: true, dashData })
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+
+
+
+export {changeAvailablity,doctorList,loginDoctor,appointmentsDoctor,appointmentComplete,appointmentCancel,doctorDashboard}
