@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { doctors, specialityData } from '../assets/assets'; // adjust if needed
+import { AppContext } from '../context/AppContext';
+import { specialityData } from '../assets/assets';
 
 function Doctors() {
-  const { speciality } = useParams(); 
-  const navigate = useNavigate(); 
-  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const { speciality } = useParams();
+  const navigate = useNavigate();
+  const { doctors } = useContext(AppContext);
 
   const decodeSpeciality = (speciality) => {
     return speciality ? speciality.replace(/-/g, ' ') : '';
   };
 
-  useEffect(() => {
-    const decodedSpeciality = decodeSpeciality(speciality);
+  const decodedSpeciality = decodeSpeciality(speciality);
 
-    if (decodedSpeciality) {
-      const filtered = doctors.filter(doc => 
-        doc.speciality.toLowerCase().trim() === decodedSpeciality.toLowerCase().trim()
-      );
-      setFilteredDoctors(filtered);
-    } else {
-      setFilteredDoctors(doctors);
-    }
-  }, [speciality]);
+  const filteredDoctors = decodedSpeciality
+    ? doctors.filter(doc => doc.speciality.toLowerCase().trim() === decodedSpeciality.toLowerCase().trim())
+    : doctors;
 
   const handleSpecialityClick = (specialityName) => {
     const slug = specialityName.replace(/\s+/g, '-').toLowerCase();
@@ -31,7 +25,7 @@ function Doctors() {
 
   return (
     <div className="flex flex-col md:flex-row gap-10 p-10">
-      
+
       {/* Sidebar */}
       <div className="min-w-[250px]">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">Parcourir les spécialités</h2>
@@ -81,7 +75,6 @@ function Doctors() {
           <p className="text-center text-gray-500">No doctors found for this specialty.</p>
         )}
       </div>
-
     </div>
   );
 }
