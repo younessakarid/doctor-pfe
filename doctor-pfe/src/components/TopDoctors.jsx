@@ -30,8 +30,8 @@ function TopDoctors() {
 
       <div className='flex gap-5 flex-wrap justify-center items-center sm:gap-8'>
         {doctors
-          .filter(doc => doc.available) // ✅ Hide unavailable doctors
-          .slice(0, 5) // ✅ Limit to 5 items
+          .filter(doc => doc.available) 
+          .slice(0, 5) 
           .map((item, index) => (
             <div
               key={index}

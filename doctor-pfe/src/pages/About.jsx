@@ -3,6 +3,9 @@ import Imagetextaboutus from '../components/Imagetextaboutus';
 import CollabSections from '../components/CollabSections';
 import VideoBanner from '../components/VideoBanner';
 import Assurance from '../components/Assurance';
+import FirstSection from '../components/FirstSection'
+
+import LocationComponent from '../components/LocationComponent';
 
 import { FiArrowRight, FiCheck } from "react-icons/fi";
 
@@ -88,6 +91,9 @@ function About() {
             </div>
             
           </div>
+             <FirstSection />
+             <LocationComponent/>
+
       </>
   )
 }

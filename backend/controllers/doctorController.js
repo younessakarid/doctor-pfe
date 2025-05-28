@@ -165,7 +165,33 @@ const doctorDashboard = async (req, res) => {
     }
 }
 
+const doctorProfile = async (req, res) => {
+    try {
 
+        const docId = req.docId 
+        const profileData = await doctorModel.findById(docId).select('-password')
 
+        res.json({ success: true, profileData })
 
-export {changeAvailablity,doctorList,loginDoctor,appointmentsDoctor,appointmentComplete,appointmentCancel,doctorDashboard}
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+const updateDoctorProfile = async (req, res) => {
+    try {
+
+        const docId = req.docId // Get docId from middleware, not from body
+        const { fees, address, available, about } = req.body // Added 'about' field
+
+        await doctorModel.findByIdAndUpdate(docId, { fees, address, available, about })
+
+        res.json({ success: true, message: 'Profile Updated' })
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export {changeAvailablity,doctorList,loginDoctor,appointmentsDoctor,appointmentComplete,appointmentCancel,doctorDashboard,doctorProfile,updateDoctorProfile}
