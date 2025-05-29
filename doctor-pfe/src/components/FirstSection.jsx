@@ -22,7 +22,7 @@ export default function FirstSection(){
             <span className="text-[#1a3c5d]"> services pour vous</span>
           </h2>
           <p className="text-gray-600">
-            We are committed to sustainability, eco-friendly initiatives.
+            Un accompagnement attentif pour un sourire en pleine santé.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function FirstSection(){
             <div className="flex justify-center mb-4">
               <img src={medicine} className="w-16 h-16" />
             </div>
-            <h3 className="text-[#1a3c5d] text-xl font-bold mb-3">Teeth<br/>Whitening</h3>
+            <h3 className="text-[#1a3c5d] text-xl font-bold mb-3">Blanchiment <br/>des dents</h3>
             <p className="text-gray-600 mb-4">
               L'essentiel à votre porte. Nous sommes excités de vous rencontrer.
             </p>

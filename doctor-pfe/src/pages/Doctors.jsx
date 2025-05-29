@@ -40,7 +40,7 @@ function Doctors() {
             </button>
           ))}
           <button 
-            onClick={() => navigate('/doctors')}
+            onClick={() => { navigate('/doctors'); scrollTo(0, 0); }}
             className="border border-gray-300 p-3 rounded-lg bg-gray-200 hover:bg-gray-300 transition text-left"
           >
             Voir Tout
@@ -54,11 +54,8 @@ function Doctors() {
           filteredDoctors.map((item, index) => (
             <div 
               key={index} 
-              onClick={() => {
-                navigate(`/appointment/${item._id}`);
-                window.scrollTo(0, 0);
-              }}
-              className="cursor-pointer rounded-[20px] w-[220px] sm:w-[250px] border border-gray-200 max-h-[320px] shadow hover:shadow-lg transition duration-300"
+              onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0); }}
+              className="rounded-[20px] w-[220px] sm:w-[250px] border border-gray-200 max-h-[320px] shadow hover:shadow-lg transition duration-300 cursor-pointer hover:scale-105"
             >
               <div className="flex justify-center h-[185px] bg-[#e7ecef] rounded-[20px] overflow-hidden">
                 <img 

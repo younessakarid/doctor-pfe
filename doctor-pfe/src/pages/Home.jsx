@@ -7,6 +7,7 @@ import VideoBanner from '../components/VideoBanner'
 import Assurance from '../components/Assurance'
 import ImageText from '../components/ImageText';
 import UnderHeader from '../components/UnderHeader';
+import WhyChooseUs from '../components/WhyChooseUs'
 
 function Home() {
   return (
@@ -19,6 +20,8 @@ function Home() {
       <Assurance/>
       <TopDoctors />
       <LocationComponent /> 
+      <WhyChooseUs/>
+     
 
     </>
   );

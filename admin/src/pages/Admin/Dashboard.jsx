@@ -38,19 +38,16 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-auto'>
-      <div className="w-full h-full p-6">
+    <div className='min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50'>
+      <div className="w-full p-6">
         
-        {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Tableau de bord</h1>
           <p className="text-gray-600">Bienvenue dans votre panneau d'administration</p>
         </div>
 
-        {/* Stats Cards */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10'>
           
-          {/* Doctors Card */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -71,7 +68,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Appointments Card */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -92,7 +88,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Patients Card */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -114,8 +109,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Latest Appointments Section - Takes remaining space */}
-        <div className='bg-white rounded-2xl shadow-xl overflow-hidden flex-1'>
+        <div className='bg-white rounded-2xl shadow-xl overflow-hidden'>
           <div className='bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200'>
             <div className='flex items-center gap-3'>
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -135,7 +129,6 @@ const Dashboard = () => {
               >
                 <div className='flex items-center gap-4'>
                   
-                  {/* Doctor Image */}
                   <div className="relative">
                     <img 
                       className='w-12 h-12 rounded-full object-cover ring-2 ring-gray-200 group-hover:ring-blue-300 transition-all duration-200' 
@@ -145,7 +138,6 @@ const Dashboard = () => {
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 border-2 border-white rounded-full"></div>
                   </div>
                   
-                  {/* Doctor Info */}
                   <div className='flex-1'>
                     <h3 className='font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200'>
                       Dr. {item.docData.name}
@@ -160,7 +152,6 @@ const Dashboard = () => {
                     </div>
                   </div>
                   
-                  {/* Status */}
                   <div className="flex items-center">
                     {getAppointmentStatus(item)}
                   </div>

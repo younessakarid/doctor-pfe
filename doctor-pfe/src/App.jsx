@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Doctors from './pages/Doctors';
@@ -14,7 +13,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MouseFollower from './components/MouseFollower'; // add this line
+import MouseFollower from './components/MouseFollower'; 
 
 function App() {
   const location = useLocation();
@@ -23,7 +22,7 @@ function App() {
   return (
     <div className='mx-0 sm:mx-[0%]'>
       <ToastContainer />
-      <MouseFollower /> {/* Add this here */}
+      <MouseFollower />
 
       {!isLoginPage && <Navbar />}
 
@@ -39,10 +38,9 @@ function App() {
         <Route path='/appointment/:docId' element={<Appointment />} />
       </Routes>
 
-      <Footer />
+      {!isLoginPage && <Footer />}
     </div>
   );
 }
-
 
 export default App;
