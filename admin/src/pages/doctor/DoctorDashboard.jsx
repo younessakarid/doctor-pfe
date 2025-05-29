@@ -1,6 +1,4 @@
-import React from 'react'
-import { useContext } from 'react'
-import { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { DoctorContext } from '../../context/DoctorContext'
 import { AppContext } from '../../context/AppContext'
 
@@ -65,6 +63,7 @@ const DoctorDashboard = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10'>
           
+          {/* Earnings */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -86,6 +85,7 @@ const DoctorDashboard = () => {
             </div>
           </div>
 
+          {/* Appointments */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -106,6 +106,7 @@ const DoctorDashboard = () => {
             </div>
           </div>
 
+          {/* Patients */}
           <div className='group relative overflow-hidden bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300'>
             <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
@@ -127,6 +128,7 @@ const DoctorDashboard = () => {
           </div>
         </div>
 
+        {/* Latest Appointments Section */}
         <div className='bg-white rounded-2xl shadow-xl overflow-hidden'>
           <div className='bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200'>
             <div className='flex items-center gap-3'>
@@ -139,8 +141,8 @@ const DoctorDashboard = () => {
             </div>
           </div>
 
-          <div className='divide-y divide-gray-100'>
-            {dashData.latestAppointments.slice(0, 5).map((item, index) => (
+          <div className='divide-y divide-gray-100 max-h-80 overflow-y-auto'>
+            {dashData.latestAppointments.map((item, index) => (
               <div 
                 key={index}
                 className='px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group'

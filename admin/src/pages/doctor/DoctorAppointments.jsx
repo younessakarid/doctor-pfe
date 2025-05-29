@@ -36,9 +36,9 @@ function DoctorAppointments() {
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-6'>
+    <div className='w-screen min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4'>
       <div className='w-full'>
-      
+
         <div className='mb-8'>
           <div className='flex items-center gap-3 mb-2'>
             <div className='p-2 bg-blue-600 rounded-lg'>
@@ -47,7 +47,7 @@ function DoctorAppointments() {
             <h1 className='text-3xl font-bold text-gray-900'>Mes Rendez-vous</h1>
           </div>
           <p className='text-gray-600'>Gérez et suivez vos rendez-vous médicaux</p>
-          
+
           {/* Statistics Cards */}
           <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-6'>
             <div className='bg-white p-4 rounded-xl shadow-sm border border-gray-100'>
@@ -61,7 +61,7 @@ function DoctorAppointments() {
                 </div>
               </div>
             </div>
-            
+
             <div className='bg-white p-4 rounded-xl shadow-sm border border-gray-100'>
               <div className='flex items-center justify-between'>
                 <div>
@@ -75,7 +75,7 @@ function DoctorAppointments() {
                 </div>
               </div>
             </div>
-            
+
             <div className='bg-white p-4 rounded-xl shadow-sm border border-gray-100'>
               <div className='flex items-center justify-between'>
                 <div>
@@ -89,7 +89,7 @@ function DoctorAppointments() {
                 </div>
               </div>
             </div>
-            
+
             <div className='bg-white p-4 rounded-xl shadow-sm border border-gray-100'>
               <div className='flex items-center justify-between'>
                 <div>
@@ -108,7 +108,7 @@ function DoctorAppointments() {
 
         {/* Appointments Table */}
         <div className='bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden'>
-          
+
           {/* Desktop Header */}
           <div className='hidden lg:grid grid-cols-[0.5fr_2.5fr_1fr_2fr_1.2fr_1fr_1.5fr] gap-4 px-6 py-4 bg-gray-50 border-b border-gray-200'>
             <div className='text-sm font-semibold text-gray-700'>#</div>
@@ -130,13 +130,13 @@ function DoctorAppointments() {
             ) : (
               appointments.reverse().map((item, index) => (
                 <div key={item._id} className='border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200'>
-                  
-                  {/* Desktop Layout */}
+
+                  {/* Desktop Row */}
                   <div className='hidden lg:grid grid-cols-[0.5fr_2.5fr_1fr_2fr_1.2fr_1fr_1.5fr] gap-4 px-6 py-4 items-center'>
                     <div className='text-sm text-gray-600 font-medium'>
                       {String(index + 1).padStart(2, '0')}
                     </div>
-                    
+
                     <div className='flex items-center gap-3'>
                       <div className='relative'>
                         <img 
@@ -150,7 +150,7 @@ function DoctorAppointments() {
                         <p className='text-xs text-gray-500'>{calculateAge(item.userData.dob)} ans</p>
                       </div>
                     </div>
-                    
+
                     <div className='text-sm'>
                       <span className={`px-2 py-1 text-xs rounded-full font-medium ${
                         item.payment 
@@ -160,24 +160,24 @@ function DoctorAppointments() {
                         {item.payment ? 'En ligne' : 'Espèces'}
                       </span>
                     </div>
-                    
+
                     <div className='text-sm text-gray-700'>
                       <div className='flex flex-col'>
                         <span className='font-medium'>{slotDateFormat(item.slotDate)}</span>
                         <span className='text-blue-600 font-semibold'>{item.slotTime}</span>
                       </div>
                     </div>
-                    
+
                     <div className='text-sm'>
                       <span className='font-bold text-green-600 text-base'>
                         {currency}{item.amount}
                       </span>
                     </div>
-                    
+
                     <div className='flex items-center gap-2'>
                       {getStatusBadge(item)}
                     </div>
-                    
+
                     <div className='flex items-center gap-2'>
                       {!item.cancelled && !item.isCompleted && (
                         <>
@@ -218,20 +218,20 @@ function DoctorAppointments() {
                       </div>
                       {getStatusBadge(item)}
                     </div>
-                    
+
                     <div className='grid grid-cols-2 gap-3 mb-3'>
                       <div className='bg-gray-50 p-3 rounded-lg'>
                         <p className='text-xs text-gray-500 mb-1'>Date & Heure</p>
                         <p className='font-medium text-sm'>{slotDateFormat(item.slotDate)}</p>
                         <p className='text-blue-600 font-semibold text-sm'>{item.slotTime}</p>
                       </div>
-                      
+
                       <div className='bg-gray-50 p-3 rounded-lg'>
                         <p className='text-xs text-gray-500 mb-1'>Frais</p>
                         <p className='font-bold text-green-600'>{currency}{item.amount}</p>
                       </div>
                     </div>
-                    
+
                     <div className='flex items-center justify-between'>
                       <div className='text-sm'>
                         <span className={`px-3 py-1 text-xs rounded-full font-medium ${
@@ -242,7 +242,7 @@ function DoctorAppointments() {
                           {item.payment ? 'En ligne' : 'Espèces'}
                         </span>
                       </div>
-                      
+
                       {!item.cancelled && !item.isCompleted && (
                         <div className='flex items-center gap-2'>
                           <button
