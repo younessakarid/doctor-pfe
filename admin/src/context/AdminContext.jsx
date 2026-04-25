@@ -25,7 +25,6 @@ const AdminContextProvider = (props) => {
 
             if (data.success) {
                 setDoctors(data.doctors);
-                console.log(data.doctors);
             } else {
                 toast.error(data.message);
             }
@@ -96,7 +95,6 @@ const AdminContextProvider = (props) => {
             }
         } catch (error) {
             toast.error(error.message);
-            console.log(error);
         }
     };
 

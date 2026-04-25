@@ -1,0 +1,53 @@
+# Environment variables - NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Backend specific
+backend/.env
+backend/node_modules
+backend/uploads/
+backend/upload/
+
+# Frontend specific
+admin/node_modules
+admin/dist
+admin/dist-ssr
+doctor-pfe/node_modules
+doctor-pfe/dist
+doctor-pfe/dist-ssr
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build outputs
+.dist/
+dist/
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Misc
+.env*.local

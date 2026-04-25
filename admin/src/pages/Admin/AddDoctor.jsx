@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
-// Note: This component requires toast from 'react-toastify' and axios for API calls
-// These would need to be available in your actual implementation
-
+import axios from 'axios';
 import { AdminContext } from '../../context/AdminContext';
 import { AppContext } from '../../context/AppContext';
 import { MdCloudUpload, MdPerson, MdEmail, MdLock, MdWork, MdAttachMoney, MdSchool, MdLocationOn, MdDescription, MdPersonAdd } from 'react-icons/md';
@@ -27,7 +25,6 @@ function AddDoctor() {
 
         try {
             if (!docImg) {
-                // return toast.error('Image Non sélectionné')
                 alert('Image Non sélectionné');
                 return;
             }
@@ -45,18 +42,9 @@ function AddDoctor() {
             formData.append('degree', degree)
             formData.append('address', JSON.stringify({ line1: address1, line2: address2 }))
 
-            formData.forEach((value, key) => {
-                console.log(`${key}: ${value}`);
-            });
-
-            // Note: Replace with your actual API call
-            // const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, { headers: { aToken } })
+            const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, { headers: { aToken } })
             
-            // Simulated API response for demo
-            const simulatedResponse = { success: true, message: 'Médecin ajouté avec succès' };
-            
-            if (simulatedResponse.success) {
-                // toast.success('Doctor ajouter', simulatedResponse.message)
+            if (data.success) {
                 alert('Médecin ajouté avec succès!');
                 setDocImg(false)
                 setName('')
@@ -67,15 +55,14 @@ function AddDoctor() {
                 setDegree('')
                 setAbout('')
                 setFees('')
+                setExperience('1 Year')
+                setSpeciality('Esthétique prothèse')
             } else {
-                // toast.error(simulatedResponse.message)
                 alert('Erreur lors de l\'ajout');
             }
 
         } catch (error) {
-            // toast.error(error.message)
             alert('Erreur: ' + error.message);
-            console.log(error)
         }
     }
 

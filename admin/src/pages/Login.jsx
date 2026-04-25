@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useState, useContext } from 'react';
-import logo from'../assets/logo.png'
-import { AdminContext} from '../context/AdminContext.jsx'
+import logo from '../assets/logo.png'
+import { AdminContext } from '../context/AdminContext.jsx'
 import { toast } from 'react-toastify'
-import Cabiner from '../assets/Cabiner.png' 
+import Cabiner from '../assets/cabiner.png' 
 import { DoctorContext } from '../context/DoctorContext.jsx';
 
 
@@ -25,7 +25,6 @@ const Login = () => {
       const { data } = await axios.post(`${backendUrl}/api/admin/login`, { email, password });
 
       if (data.success) {
-        console.log("Admin Token:", data.token);
         setAToken(data.token);
         localStorage.setItem('aToken', data.token);
         toast.success("Connexion administrateur réussie !");
@@ -38,7 +37,6 @@ const Login = () => {
       const { data } = await axios.post(`${backendUrl}/api/doctor/login`, { email, password });
 
       if (data.success) {
-        console.log("Doctor Token:", data.token);
         setDToken(data.token);
         localStorage.setItem('dToken', data.token);
         toast.success("Connexion médecin réussie !");
@@ -48,7 +46,6 @@ const Login = () => {
       }
     }
   } catch (error) {
-    console.error("Login error:", error);
     toast.error("Une erreur est survenue pendant la connexion");
   }
 };

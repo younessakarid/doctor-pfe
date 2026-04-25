@@ -24,7 +24,6 @@ const DoctorContextProvider = (props) => {
 
             if (data.success) {
                 setAppointments(data.appointments);
-                console.log(data.appointments);
             } else {
                 toast.error(data.message);
             }
@@ -51,7 +50,6 @@ const DoctorContextProvider = (props) => {
             }
         } catch (error) {
             toast.error(error.message);
-            console.log(error);
         }
     };
 
@@ -72,7 +70,6 @@ const DoctorContextProvider = (props) => {
             }
         } catch (error) {
             toast.error(error.message);
-            console.log(error);
         }
     };
 
@@ -86,12 +83,10 @@ const DoctorContextProvider = (props) => {
 
             if (data.success) {
                 setDashData(data.dashData);
-                console.log(data.dashData);
             } else {
                 toast.error(data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.message);
         }
     };
@@ -104,15 +99,12 @@ const DoctorContextProvider = (props) => {
                 { headers: { dToken } }
             );
 
-            console.log(data.profileData);
-
             if (data.success) {
                 setProfileData(data.profileData);
             } else {
                 toast.error(data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.message);
         }
     };

@@ -3,8 +3,8 @@ import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-import logo from '../assets/logo.png' // assure-toi que le chemin est correct
-import cabinetimg from '../assets/cabinetimg.jpg' // pareil ici
+import logo from '../assets/logo.png'
+import cabinetimg from '../assets/cabinetimg.jpg'
 
 const Login = () => {
 
