@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Cabiner from '../assets/Cabiner.png';
-import Play from '../assets/Play.png';
+import Cabiner from '../assets/cabiner.png';
+import Play from '../assets/play.png';
 import Hover from '../assets/play-button.png'; 
 import 'animate.css';
 

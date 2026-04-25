@@ -10,5 +10,15 @@ export default defineConfig({
   server: { port: 5173 },
   optimizeDeps: {
     include: ['react-toastify']
+  },
+  build: {
+    rollupOptions: {
+      external: [],
+      output: {
+        manualChunks: {
+          'react-toastify': ['react-toastify']
+        }
+      }
+    }
   }
 })

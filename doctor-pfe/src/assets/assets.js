@@ -4,7 +4,7 @@ import Parodontologie_exclusive from '../assets/Parodontologie_exclusive.png'
 import chirurgie_dentaire from '../assets/chirurgie_dentaire.png'
 import icon_water from '../assets/icone-de-l-eau-bleue.png'
 import icon_pilule from '../assets/icone-pilule.png'
-import Dentisterie_adhésive_et_esthétique from '../assets/Dentisterie_adhesive-et-esthetique.png'
+import Dentisterie_adhesive from '../assets/Dentisterie_adhesive-et-esthetique.png'
 import logo from '../assets/logo.png'
 import profile_pic from '../assets/profile_pic.png'
 
@@ -15,7 +15,7 @@ export const assets = {
   chirurgie_dentaire,
   icon_water,
   icon_pilule,
-  Dentisterie_adhésive_et_esthétique,
+  Dentisterie_adhesive,
   logo,
   profile_pic
 }
@@ -43,7 +43,7 @@ export const specialityData = [
     },
     {
         speciality : 'Dentisterie adhésive et esthétique',
-        Image : Dentisterie_adhésive_et_esthétique
+        Image : Dentisterie_adhesive
     }
 ]
 
