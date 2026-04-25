@@ -111,7 +111,7 @@ export const doctors = [
     {
         _id: 'doc5',
         name: 'Dr. Anne Favreul',
-        image: Dentisterie_adhésive_et_esthétique,
+        image: Dentisterie_adhesive,
         speciality: 'Dentisterie adhésive et esthétique',
         degree: 'D.E. Chir. Dent',
         experience: '9 Years',
